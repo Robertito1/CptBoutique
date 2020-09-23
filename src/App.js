@@ -1,24 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Switch, Route } from "react-router-dom";
+import Homepage from "./pages/Homepage";
+import CategoriesPage from "./pages/categories/CategoriesPage";
+import Header from "./components/Header";
+import Bags from "./pages/bags/Bags";
+import ShoesPage from "./pages/shoes/ShoesPage";
+import WearsPage from "./pages/wears/WearsPage";
+import AccessoriesPage from "./pages/accessories/AccessoriesPage";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Switch>
+        <Route exact path="/" render={() => <Homepage />} />
+        <Route path="/categories" component={() => <CategoriesPage />} />
+        <Route path="/bags" component={() => <Bags />} />
+        <Route path="/shoes" component={() => <ShoesPage />} />
+        <Route path="/wears" component={() => <WearsPage />} />
+        <Route path="/accessories" component={() => <AccessoriesPage />} />
+      </Switch>
     </div>
   );
 }
