@@ -9,11 +9,13 @@ const WearsPage = () => {
   }, []);
   return (
     <div>
-      <h1>Wears</h1>
-      <div className="row">
-        {wearsArray.map((sales) => (
-          <SalesItem key={sales.id} details={sales} />
-        ))}
+      <div className="container-fluid">
+        <h1>Wears</h1>
+        <div className="row">
+          {wearsArray.map((sales) => (
+            <SalesItem key={sales.id} details={sales} />
+          ))}
+        </div>
       </div>
     </div>
   );

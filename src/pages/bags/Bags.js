@@ -10,11 +10,13 @@ const Bags = () => {
   }, []);
   return (
     <div>
-      <h1>Bags</h1>
-      <div className="row">
-        {bagsArray.map((sales) => (
-          <SalesItem key={sales.id} details={sales} />
-        ))}
+      <div className="container-fluid">
+        <h1>Bags</h1>
+        <div className="row">
+          {bagsArray.map((sales) => (
+            <SalesItem key={sales.id} details={sales} />
+          ))}
+        </div>
       </div>
     </div>
   );

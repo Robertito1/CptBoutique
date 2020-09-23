@@ -9,11 +9,13 @@ const ShoesPage = () => {
   }, []);
   return (
     <div>
-      <h1>Shoes</h1>
-      <div className="row">
-        {shoesArray.map((sales) => (
-          <SalesItem key={sales.id} details={sales} />
-        ))}
+      <div className="container-fluid">
+        <h1>Shoes</h1>
+        <div className="row">
+          {shoesArray.map((sales) => (
+            <SalesItem key={sales.id} details={sales} />
+          ))}
+        </div>
       </div>
     </div>
   );

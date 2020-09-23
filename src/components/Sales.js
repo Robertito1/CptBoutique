@@ -41,10 +41,12 @@ const Sales = () => {
   return (
     <div>
       <h2 className="text-center">Sales</h2>
-      <div className="row">
-        {salesArray.map((sales) => (
-          <SalesItem details={sales} />
-        ))}
+      <div className="container-fluid">
+        <div className="row">
+          {salesArray.map((sales) => (
+            <SalesItem details={sales} />
+          ))}
+        </div>
       </div>
     </div>
   );
