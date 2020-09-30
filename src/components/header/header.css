@@ -1,0 +1,13 @@
+.navbar {
+  height: 100px;
+  background-color: rgb(218, 4, 4);
+}
+
+.nav-link {
+  padding: 0;
+  font-size: larger;
+}
+.nav-item {
+  padding-left: 40px;
+  padding-right: 40px;
+}

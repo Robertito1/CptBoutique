@@ -40,7 +40,8 @@ const Sales = () => {
   }, []);
   return (
     <div>
-      <h2 className="text-center">Sales</h2>
+      <h3 className="ml-4">Quick Buys</h3>
+      <h1 className="ml-4">Sales</h1>
       <div className="container-fluid">
         <div className="row">
           {salesArray.map((sales) => (
