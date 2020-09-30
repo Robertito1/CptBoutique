@@ -1,57 +1,58 @@
 import React from "react";
-import { Slide } from "react-slideshow-image";
 import slide1 from "../../assets/eric-nopanen-8e0EHPUx3Mo-unsplash.jpg";
 import slide2 from "../../assets/israel-palacio-Y20JJ_ddy9M-unsplash.jpg";
 import slide3 from "../../assets/jallen-fosati-kX8p3etvVq8-unsplash.jpg";
-import './slide.css'
+import "./slide.css";
 import "react-slideshow-image/dist/styles.css";
-
-const slideImages = [slide1, slide2, slide3];
 
 const Slides = () => {
   return (
-    <div className="slide-container">
-      <Slide>
-        <div className="each-slide">
-          <div
-            style={{
-              backgroundImage: `url(${slideImages[0]})`,
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-              width: "100vw",
-              height: "100vh",
-            }}
-          >
-            <span>Slide 1</span>
-          </div>
+    <div
+      id="carouselExampleFade"
+      className="carousel slide carousel-fade"
+      data-ride="carousel"
+    >
+      <div className="carousel-inner">
+        <div className="carousel-item active">
+          <img
+            className="d-inline-block w-100 image"
+            src={slide1}
+            alt="First slide"
+          />
         </div>
-        <div className="each-slide">
-          <div
-            style={{
-              backgroundImage: `url(${slideImages[1]})`,
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-              width: "100vw",
-              height: "100vh",
-            }}
-          >
-            <span>Slide 2</span>
-          </div>
+        <div className="carousel-item">
+          <img
+            className="d-inline-block w-100 image"
+            src={slide2}
+            alt="Second slide"
+          />
         </div>
-        <div className="each-slide">
-          <div
-            style={{
-              backgroundImage: `url(${slideImages[2]})`,
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-              width: "100vw",
-              height: "100vh",
-            }}
-          >
-            <span>Slide 3</span>
-          </div>
+        <div className="carousel-item">
+          <img
+            className="d-inline-block w-100 image"
+            src={slide3}
+            alt="Third slide"
+          />
         </div>
-      </Slide>
+      </div>
+      <a
+        className="carousel-control-prev"
+        href="#carouselExampleFade"
+        role="button"
+        data-slide="prev"
+      >
+        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span className="sr-only">Previous</span>
+      </a>
+      <a
+        className="carousel-control-next"
+        href="#carouselExampleFade"
+        role="button"
+        data-slide="next"
+      >
+        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+        <span className="sr-only">Next</span>
+      </a>
     </div>
   );
 };

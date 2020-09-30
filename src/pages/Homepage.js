@@ -1,5 +1,5 @@
 import React from "react";
-import Sales from "../components/Sales";
+import Sales from "../components/sales/Sales";
 import Slides from "../components/slide/slide";
 
 const Homepage = () => {

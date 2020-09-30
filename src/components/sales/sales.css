@@ -1,0 +1,14 @@
+.quick-buys {
+  color: rgb(218, 4, 4);
+}
+
+@media only screen and (max-width: 576px) {
+  .quick-buys {
+    display: flex;
+    justify-content: center;
+  }
+  .sales {
+    display: flex;
+    justify-content: center;
+  }
+}

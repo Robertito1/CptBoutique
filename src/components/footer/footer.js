@@ -1,36 +1,60 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoffee } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
+import "./footer.css";
 
 const Footer = () => {
   return (
-    <div className="container-fluid">
-      <footer id="main-footer" className="bg-primary">
-        <h5 className="text-center text-warning py-4">Contact</h5>
-        <span className="row  justify-content-center py-4">
-          <i className="fas fa-mobile-alt email">Call/WhatsApp: 08035083715</i>
-          <i className="far fa-envelope email">
-            Email: dohrceconsulting@gmail.com
-          </i>
-        </span>
-        <div className="row text-center text-nowrap justify-content-center">
-          <div className="icon-container">
-            <a href="https://www.linkedin.com/in/dorcas-ekong-cshcm-09774815">
-              <FontAwesomeIcon icon={faCoffee} />
-            </a>
+    <div className="container-fluid footer">
+      <footer id="main-footer" className="">
+        <div className="row">
+          <div className="col-sm-12 col-md-6 text-white">
+            <h5 className="mb-3">Contact</h5>
+            <p>
+              <i className="fas fa-map-marker-alt"></i> {"\u00A0"} Address 80
+              Aminu Kano Crescent, Wuse, Abuja
+            </p>
+            <p>
+              <i class="fas fa-phone-alt"></i> {"\u00A0"}
+              Call/WhatsApp: 08035083715
+            </p>
+            <p>
+              <i className="far fa-envelope email"></i> {"\u00A0"} Email:
+              dohrceconsulting@gmail.com
+            </p>
           </div>
-          <div className="icon-container">
-            <a href="https://web.facebook.com/dorcas.ekong ">
-              <FontAwesomeIcon icon={faCoffee} />
+          <div className="col-sm-6 col-md-3 text-white">
+            <h5 className="mb-3">Social Media</h5>
+            <a className="footer-links" href="https://instagram.com">
+              <i className="fab fa-instagram"></i> {"\u00A0"} Instagram
             </a>
-          </div>
-          <div className="icon-container">
-            <a href="https://twitter.com/dorcasekong1">
-              <FontAwesomeIcon icon={faCoffee} className="bg-warning" />
+            <br />
+            <a className="footer-links" href="https://facebook.com">
+              <i className="fab fa-facebook"></i> {"\u00A0"} Facebook
             </a>
+            <br />
+            <a className="footer-links" href="https://linktree.com">
+              LinkTree
+            </a>{" "}
+            <br />
           </div>
-          <div className="icon-container">
-            <a href="https://www.instagram.com/didorc/">click</a>
+          <div className="col-sm-6 col-md-3 text-white">
+            <h5 className="mb-3">Categories</h5>
+            <Link className="footer-links" to="/shoes">
+              Shoes
+            </Link>
+            <br />
+            <Link className="footer-links" to="/accessories">
+              Accessories
+            </Link>
+            <br />
+            <Link className="footer-links" to="/bags">
+              Bags
+            </Link>
+            <br />
+            <Link className="footer-links" to="/wears">
+              Wears
+            </Link>
+            <br />
           </div>
         </div>
       </footer>

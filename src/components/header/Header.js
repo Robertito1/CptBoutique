@@ -4,10 +4,10 @@ import "./header.css";
 
 const Header = () => {
   return (
-    <div className="header text-center">
+    <div className="header">
       <nav className="navbar navbar-expand-md" id="navbar-section">
         <Link className="toHome navbar-brand" to="/">
-          <p className="my-auto logo animate__animated animate__backInUp text-dark">
+          <p className="my-auto logo animate__animated animate__backInUp text-white logo">
             CPT
           </p>
         </Link>
@@ -22,13 +22,13 @@ const Header = () => {
         <div className="collapse navbar-collapse " id="navbarResponsive">
           <ul className="navbar-nav text-nowrap ml-auto">
             <li className="nav-item ">
-              <Link className="toHome nav-link text-dark" to="/">
+              <Link className="toHome nav-link text-white" to="/">
                 Home
               </Link>
             </li>
             <li className="nav-item dropdown">
               <Link
-                className="nav-link dropdown-toggle text-dark"
+                className="nav-link dropdown-toggle text-white"
                 to="/categories"
                 id="navbarDropdown"
                 role="button"
@@ -40,17 +40,17 @@ const Header = () => {
               </Link>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <Link className="dropdown-item" to="/wears">
-                  wears
+                  Wears
                 </Link>
                 <Link className="dropdown-item" to="/shoes">
-                  shoes
+                  Shoes
                 </Link>
                 <div className="dropdown-divider"></div>
                 <Link className="dropdown-item" to="/bags">
-                  bagss
+                  Bags
                 </Link>
                 <Link className="dropdown-item" to="/accessories">
-                  accessories
+                  Accessories
                 </Link>
               </div>
             </li>

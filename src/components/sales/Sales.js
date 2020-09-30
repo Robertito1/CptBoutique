@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import SalesItem from "./SalesItem/SalesItem";
-import ig from "../assets/eric-nopanen-8e0EHPUx3Mo-unsplash.jpg";
+import SalesItem from "../SalesItem/SalesItem";
+import "./sales.css";
+import ig from "../../assets/eric-nopanen-8e0EHPUx3Mo-unsplash.jpg";
 
 const Sales = () => {
   const [salesArray, setSalesArray] = useState([]);
@@ -40,10 +41,10 @@ const Sales = () => {
   }, []);
   return (
     <div>
-      <h3 className="ml-4">Quick Buys</h3>
-      <h1 className="ml-4">Sales</h1>
+      <h3 className="ml-4 quick-buys">Quick Buys</h3>
+      <h1 className="ml-4 sales">Sales</h1>
       <div className="container-fluid">
-        <div className="row">
+        <div className="row d-flex  justify-content-center">
           {salesArray.map((sales) => (
             <SalesItem details={sales} />
           ))}

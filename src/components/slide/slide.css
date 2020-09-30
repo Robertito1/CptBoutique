@@ -1,3 +1,10 @@
-.slide-container {
+.slide {
   margin-bottom: 150px;
+  margin-top: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.image {
+  height: 80vh;
 }

@@ -1,6 +1,21 @@
-.container-fluid {
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
+@import url("https://fonts.googleapis.com/css2?family=Piazzolla:ital,wght@1,100&display=swap");
+
+.footer {
+  background-color: rgb(41, 39, 39);
+  padding: 100px 50px;
+  font-family: "Dancing Script", cursive;
+}
+
+.main-footer {
+  padding-left: 300px;
+}
+
+.footer-links {
+  text-decoration: none;
+  color: white;
+  font-family: "Piazzolla", serif;
+}
+.footer-links:hover {
+  text-decoration: none;
+  color: rgb(160, 150, 150);
 }
