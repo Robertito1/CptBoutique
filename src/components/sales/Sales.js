@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
 import SalesItem from "../SalesItem/SalesItem";
 import "./sales.css";
-import ig from "../../assets/eric-nopanen-8e0EHPUx3Mo-unsplash.jpg";
+import image1 from "../../assets/accessories1.png";
+import image2 from "../../assets/wears9.png";
+import image3 from "../../assets/shoes1.png";
+import image4 from "../../assets/bag10.png";
+import image5 from "../../assets/accessories6.png";
+import image6 from "../../assets/wears3.png";
 
 const Sales = () => {
   const [salesArray, setSalesArray] = useState([]);
@@ -10,32 +15,32 @@ const Sales = () => {
       {
         name: "bag",
         price: "$200",
-        img: ig,
+        img: image1,
       },
       {
         name: "bag",
         price: "$200",
-        img: ig,
+        img: image2,
       },
       {
         name: "bag",
         price: "$200",
-        img: ig,
+        img: image3,
       },
       {
         name: "bag",
         price: "$200",
-        img: ig,
+        img: image4,
       },
       {
         name: "bag",
         price: "$200",
-        img: ig,
+        img: image5,
       },
       {
         name: "bag",
         price: "$200",
-        img: ig,
+        img: image6,
       },
     ]);
   }, []);

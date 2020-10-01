@@ -3,7 +3,7 @@ import "./salesitem.css";
 
 const SalesItem = ({ details }) => {
   return (
-    <div className="card col-sm-6 col-md-3 mb-4">
+    <div className="card col-sm-6 col-md-3 mb-4 border-0">
       <img className="card-img-top mb-0 rounded" src={details.img} alt="item" />
       <div className="d-flex  justify-content-between card-body p-0 mb-0">
         <div className="order-1">

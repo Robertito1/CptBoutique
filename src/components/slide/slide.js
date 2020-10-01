@@ -1,7 +1,7 @@
 import React from "react";
-import slide1 from "../../assets/eric-nopanen-8e0EHPUx3Mo-unsplash.jpg";
-import slide2 from "../../assets/israel-palacio-Y20JJ_ddy9M-unsplash.jpg";
-import slide3 from "../../assets/jallen-fosati-kX8p3etvVq8-unsplash.jpg";
+import slide1 from "../../assets/accessories4.png";
+import slide2 from "../../assets/bag8.png";
+import slide3 from "../../assets/wears7.png";
 import "./slide.css";
 import "react-slideshow-image/dist/styles.css";
 
