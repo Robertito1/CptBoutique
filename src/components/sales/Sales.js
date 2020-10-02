@@ -13,41 +13,41 @@ const Sales = () => {
   useEffect(() => {
     setSalesArray([
       {
-        name: "bag",
-        price: "$200",
+        name: "gold rimmed channel glasses",
+        price: "\u20A65000",
         img: image1,
       },
       {
-        name: "bag",
-        price: "$200",
+        name: "velvet top",
+        price: "\u20A67000",
         img: image2,
       },
       {
-        name: "bag",
-        price: "$200",
+        name: "flowered gucci shoe",
+        price: "\u20A611500",
         img: image3,
       },
       {
-        name: "bag",
-        price: "$200",
+        name: "italian leather bag",
+        price: "\u20A618000",
         img: image4,
       },
       {
-        name: "bag",
-        price: "$200",
+        name: "burberry glasses",
+        price: "\u20A64500",
         img: image5,
       },
       {
-        name: "bag",
-        price: "$200",
+        name: "channel polo",
+        price: "\u20A63500",
         img: image6,
       },
     ]);
   }, []);
   return (
     <div>
-      <h3 className="ml-4 quick-buys">Quick Buys</h3>
-      <h1 className="ml-4 sales">Sales</h1>
+      <h3 className="quick-buys">Quick Buys</h3>
+      <h1 className="sales">Sales</h1>
       <div className="container-fluid">
         <div className="row d-flex  justify-content-center">
           {salesArray.map((sales) => (

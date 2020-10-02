@@ -5,7 +5,10 @@ import "./header.css";
 const Header = () => {
   return (
     <div className="header">
-      <nav className="navbar navbar-expand-md" id="navbar-section">
+      <nav
+        className="navbar navbar-expand-md navbar-light "
+        id="navbar-section"
+      >
         <Link className="toHome navbar-brand" to="/">
           <p className="my-auto logo animate__animated animate__backInUp text-white logo">
             CPT
@@ -19,7 +22,7 @@ const Header = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse " id="navbarResponsive">
+        <div className="collapse navbar-collapse" id="navbarResponsive">
           <ul className="navbar-nav text-nowrap ml-auto">
             <li className="nav-item ">
               <Link className="toHome nav-link text-white" to="/">
@@ -53,6 +56,11 @@ const Header = () => {
                   Accessories
                 </Link>
               </div>
+            </li>
+            <li className="nav-item dropdown">
+              <Link className="toContact nav-link text-white" to="/">
+                Contact
+              </Link>
             </li>
           </ul>
         </div>

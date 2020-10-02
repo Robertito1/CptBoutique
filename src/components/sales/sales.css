@@ -1,14 +1,20 @@
 .quick-buys {
   color: rgb(218, 4, 4);
+  margin-left: 50px;
 }
 
-@media only screen and (max-width: 576px) {
+.sales {
+  margin-left: 50px;
+}
+@media only screen and (max-width: 639px) {
   .quick-buys {
     display: flex;
     justify-content: center;
+    margin-left: 0;
   }
   .sales {
     display: flex;
     justify-content: center;
+    margin-left: 0;
   }
 }

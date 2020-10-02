@@ -4,25 +4,25 @@ import "./footer.css";
 
 const Footer = () => {
   return (
-    <div className="container-fluid footer">
-      <footer id="main-footer" className="">
+    <div>
+      <footer id="main-footer" className="footer container-fluid">
         <div className="row">
-          <div className="col-sm-12 col-md-6 text-white">
+          <div className="col-sm-12 col-md-6 text-white contact-container">
             <h5 className="mb-3">Contact</h5>
             <p>
-              <i className="fas fa-map-marker-alt"></i> {"\u00A0"} Address 80
-              Aminu Kano Crescent, Wuse, Abuja
+              <i className="fas fa-map-marker-alt"></i> {"\u00A0"} Address Plot
+              2a Omofade cresent Omole estate phase 1, Ikeja, Lagos
             </p>
             <p>
               <i class="fas fa-phone-alt"></i> {"\u00A0"}
-              Call/WhatsApp: 08035083715
+              Call/WhatsApp: 08033235283
             </p>
             <p>
               <i className="far fa-envelope email"></i> {"\u00A0"} Email:
-              dohrceconsulting@gmail.com
+              cherishprettythings@gmail.com
             </p>
           </div>
-          <div className="col-sm-6 col-md-3 text-white">
+          <div className="col-sm-6 col-md-3 text-white social-container">
             <h5 className="mb-3">Social Media</h5>
             <a className="footer-links" href="https://instagram.com">
               <i className="fab fa-instagram"></i> {"\u00A0"} Instagram
@@ -32,12 +32,13 @@ const Footer = () => {
               <i className="fab fa-facebook"></i> {"\u00A0"} Facebook
             </a>
             <br />
-            <a className="footer-links" href="https://linktree.com">
-              LinkTree
+            <a className="footer-links" href="https://wa.me/+2348033235283">
+              <i class="fab fa-whatsapp"></i> {"\u00A0"}
+              WhatsApp
             </a>{" "}
             <br />
           </div>
-          <div className="col-sm-6 col-md-3 text-white">
+          <div className="col-sm-6 col-md-3 text-white categories-container">
             <h5 className="mb-3">Categories</h5>
             <Link className="footer-links" to="/shoes">
               Shoes
@@ -58,6 +59,9 @@ const Footer = () => {
           </div>
         </div>
       </footer>
+      <div className="copyright container-fluid text-white text-center">
+        Copyright &#169; 2020 könig Technologies
+      </div>
     </div>
   );
 };

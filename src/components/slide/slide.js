@@ -1,7 +1,7 @@
 import React from "react";
-import slide1 from "../../assets/accessories4.png";
-import slide2 from "../../assets/bag8.png";
-import slide3 from "../../assets/wears7.png";
+import slide1 from "../../assets/hero4.png";
+import slide2 from "../../assets/hero2.png";
+import slide3 from "../../assets/hero5.png";
 import "./slide.css";
 import "react-slideshow-image/dist/styles.css";
 
