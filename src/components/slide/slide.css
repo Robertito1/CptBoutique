@@ -17,8 +17,14 @@
     margin-right: 20px;
   }
 }
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 415px) {
   .image {
-    height: 50vh;
+    height: 70vh;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .image {
+    height: 60vh;
   }
 }
