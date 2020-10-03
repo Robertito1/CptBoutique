@@ -8,6 +8,7 @@ const WearsPage = () => {
   useEffect(() => {
     setWearsArray(wearsData);
   }, []);
+
   return (
     <div>
       <div className="container-fluid">
