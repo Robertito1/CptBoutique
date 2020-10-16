@@ -10,6 +10,10 @@ const middleware = require("./utils/middleware");
 const loginRouter = require("./controllers/login");
 const usersRouter = require("./controllers/user");
 const salesRouter = require("./controllers/sales");
+const accessoriesRouter = require("./controllers/accessories");
+const bagsRouter = require("./controllers/bags");
+const shoesRouter = require("./controllers/shoes");
+const wearsRouter = require("./controllers/wears");
 const logger = require("./utils/logger");
 const mongoose = require("mongoose");
 
@@ -36,6 +40,10 @@ app.use(middleware.tokenExtractor);
 app.use("/api/user", usersRouter);
 app.use("/api/login", loginRouter);
 app.use("/api/sales" , salesRouter)
+app.use("/api/accessories" , accessoriesRouter)
+app.use("/api/bags" , bagsRouter)
+app.use("/api/shoes" , shoesRouter)
+app.use("/api/wears" , wearsRouter)
 // app.post('/api/images', parser.array("images", 2),(req, res) => {
 //         res.json(req.files)
 //   });
