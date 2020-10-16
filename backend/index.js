@@ -29,11 +29,6 @@ mongoose
     res.send('<h1>Hello World!</h1>')
   })
 
-app.get('/api/sales', (req, res) => {
-   
- res.json("notes")
- 
-})
 app.use(cors());
 app.use(express.json());
 app.use(middleware.requestLogger);
