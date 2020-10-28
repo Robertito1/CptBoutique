@@ -1,30 +1,36 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect , useRef } from 'react'
 import salesServices from '../../../services/sales'
 
 
-const BagsAdmin = () => {
+const SalesAdmin = () => {
 
-    const formData = new FormData()
+    const [user, setUser] = useState(null)
+    const form = useRef(null)
     const [images, setImages] = useState([])
     const [title, setTitle] = useState('')
     const [price, setPrice] = useState('')
 
-    
+    useEffect(() => {
+        const loggedUserJSON = window.localStorage.getItem('loggedBlogappUser')
+        if (loggedUserJSON) {
+          const user = JSON.parse(loggedUserJSON)
+          setUser(user)
+          console.log(user.token)
+        }
+      }, [])
 
     const uploadForm = (e) => {
         e.preventDefault()
-        formData.append("title", title);
-        formData.append("price", price);
-        formData.append("images", images);
+        const formData = new FormData(form.current)
 
+        console.log(formData.getAll('images'))
 
-        const config = {
-            headers: {
-                'content-type': 'multipart/form-data'
-            }
-        }
+            const config = {
+         headers: { Authorization: `bearer ${user.token}` },
+   }
+        
      salesServices
-     .createAccessory(formData , config)
+     .createSales(formData , config)
         .then( response => {
            console.log(response)
            console.log(formData)
@@ -34,19 +40,18 @@ const BagsAdmin = () => {
     }
 
     const setSelectedImages = (object) => {
-        const array = Object.values(object)
-           setImages(images.concat(array))
+           setImages(object)
     }
 
     return ( <div>
         <h1>Bags</h1>
-        <form onSubmit={uploadForm} id='form'>
+        <form onSubmit={uploadForm} ref={form}>
             <input type='text' value={title} name='title'  onChange={(e) => setTitle(e.target.value)} />
             <input type='text' value={price} name='price'  onChange={(e) => setPrice(e.target.value)} />
             <input type='file' name="images" multiple onChange={(e) => setSelectedImages(e.target.files)} />
-            <button type='submit'>submit</button>
+            <input type='submit' name='submit' />
         </form>
     </div> );
 }
  
-export default BagsAdmin;
+export default SalesAdmin;

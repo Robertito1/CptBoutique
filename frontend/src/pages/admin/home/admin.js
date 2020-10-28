@@ -1,51 +1,67 @@
-import React, { useState } from 'react'
-import salesServices from '../../../services/sales'
+import React, { useState, useEffect } from 'react'
+import { Switch, Route } from "react-router-dom";
+import Login from '../../../components/login/LoginForm'
+import loginService from '../../../services/login'
+import SalesAdmin from "../sales/sales_admin";
+
 
 
 const AdminHome = () => {
+ 
+    const [user, setUser] = useState(null)
 
-    const formData = new FormData()
-    const [images, setImages] = useState([])
-    const [title, setTitle] = useState('')
-    const [price, setPrice] = useState('')
-
-    
-
-    const uploadForm = (e) => {
-        e.preventDefault()
-        formData.append("title", title);
-        formData.append("price", price);
-        formData.append("images", images);
-
-
-        const config = {
-            headers: {
-                'content-type': 'multipart/form-data'
-            }
+    useEffect(() => {
+        const loggedUserJSON = window.localStorage.getItem('loggedBlogappUser')
+        if (loggedUserJSON) {
+          const user = JSON.parse(loggedUserJSON)
+          setUser(user)
+          console.log(user.token)
         }
-     salesServices
-     .createAccessory(formData , config)
-        .then( response => {
-           console.log(response)
-           console.log(formData)
-          }).catch(error => {
-            console.log('fail', error)
-          })
-    }
+      }, [])
 
-    const setSelectedImages = (object) => {
-        const array = Object.values(object)
-           setImages(images.concat(array))
-    }
+      const handleLogin = async (username, password) => {
+        try {
+          const user = await loginService.login({
+            username,
+            password,
+          })
+          window.localStorage.setItem('loggedBlogappUser', JSON.stringify(user))
+          setUser(user)
+          console.log("logged in")
+        //   setNotificationStatus(true)
+        //   setNotificationMessage(`${user.name} Logged in`)
+        //   setTimeout(() => {
+        //     setNotificationMessage(null)
+        //   }, 5000)
+    
+        } catch (exception) {
+    
+        //   setNotificationStatus(false)
+        //   setNotificationMessage('Wrong Username or password')
+        //   setTimeout(() => {
+        //     setNotificationMessage(null)
+        //   }, 5000)
+        console.log(exception)
+        }
+    
+      }
+
+
+
+  
 
     return ( <div>
         <h1>Admin HomePage</h1>
-        <form onSubmit={uploadForm} id='form'>
-            <input type='text' value={title} name='title'  onChange={(e) => setTitle(e.target.value)} />
-            <input type='text' value={price} name='price'  onChange={(e) => setPrice(e.target.value)} />
-            <input type='file' name="images" multiple onChange={(e) => setSelectedImages(e.target.files)} />
-            <button type='submit'>submit</button>
-        </form>
+       <Login handleLogin={handleLogin} />
+       <Switch>
+        {/* <Route exact path="/" render={() => <Homepage />} />
+        <Route path="/admin" component={() => <AdminHome />} />  */}
+        <Route path="/admin/sales" component={() => <SalesAdmin />} /> 
+        {/* <Route path="/bags" component={() => <Bags />} />
+        <Route path="/shoes" component={() => <ShoesPage />} />
+        <Route path="/wears" component={() => <WearsPage />} /> */}
+        {/* <Route path="/accessories" component={() => <AccessoriesPage />} /> */}
+      </Switch>
     </div> );
 }
  
