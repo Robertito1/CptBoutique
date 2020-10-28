@@ -14,7 +14,7 @@ const Footer = () => {
               2a Omofade cresent Omole estate phase 1, Ikeja, Lagos
             </p>
             <p>
-              <i class="fas fa-phone-alt"></i> {"\u00A0"}
+              <i className="fas fa-phone-alt"></i> {"\u00A0"}
               Call/WhatsApp: 08033235283
             </p>
             <p>
@@ -33,7 +33,7 @@ const Footer = () => {
             </a>
             <br />
             <a className="footer-links" href="https://wa.me/+2348033235283">
-              <i class="fab fa-whatsapp"></i> {"\u00A0"}
+              <i className="fab fa-whatsapp"></i> {"\u00A0"}
               WhatsApp
             </a>{" "}
             <br />

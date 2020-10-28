@@ -15,32 +15,38 @@ const Sales = () => {
       {
         name: "gold rimmed channel glasses",
         price: "\u20A65000",
-        img: image1,
+        img: [image1,image2,image3],
+        id: 3685
       },
       {
         name: "velvet top",
         price: "\u20A67000",
-        img: image2,
+        img: [image2,image6,image4],
+        id: 3680
       },
       {
         name: "flowered gucci shoe",
         price: "\u20A611500",
-        img: image3,
+        img: [image3,image2,image1],
+        id: 3687
       },
       {
         name: "italian leather bag",
         price: "\u20A618000",
-        img: image4,
+        img: [image4,image5, image3],
+        id: 3682
       },
       {
         name: "burberry glasses",
         price: "\u20A64500",
-        img: image5,
+        img: [image5,image1,image3],
+        id: 3681
       },
       {
         name: "channel polo",
         price: "\u20A63500",
-        img: image6,
+        img: [image6,image3,image1],
+        id: 3689
       },
     ]);
   }, []);
@@ -51,7 +57,7 @@ const Sales = () => {
       <div className="container-fluid">
         <div className="row d-flex  justify-content-center">
           {salesArray.map((sales) => (
-            <SalesItem details={sales} />
+            <SalesItem details={sales} key={sales.name} />
           ))}
         </div>
       </div>

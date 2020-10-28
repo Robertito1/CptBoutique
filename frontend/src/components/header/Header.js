@@ -41,7 +41,7 @@ const Header = () => {
               >
                 Categories
               </Link>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <Link className="dropdown-item" to="/wears">
                   Wears
                 </Link>
