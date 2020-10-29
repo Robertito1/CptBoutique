@@ -74,9 +74,10 @@ const SalesAdmin = ({history}) => {
     return ( <div>
     <button onClick={()=> history.push('/admin')}>back</button>
         <div>
+        <h1>Sales</h1>
          {salesArray.map(item => <AdminItem details={item} key={item.id} handleDelete={handleDelete} />)} 
         </div>
-        <h1>Sales</h1>
+      
         
         <form onSubmit={uploadForm} ref={form}>
             <input type='text' value={title} name='title' onChange={(e) => setTitle(e.target.value)} />

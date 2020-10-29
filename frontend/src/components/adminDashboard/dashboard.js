@@ -12,25 +12,25 @@ const DashBoard = ({history , toggleBoard}) => {
         history.push('/admin/accessories')
         toggleBoard()
     }
-    // const gotoSales = () =>{
-    //     history.push('/admin/sales')
-    //     toggleBoard()
-    // }
-    // const gotoSales = () =>{
-    //     history.push('/admin/sales')
-    //     toggleBoard()
-    // }
-    // const gotoSales = () =>{
-    //     history.push('/admin/sales')
-    //     toggleBoard()
-    // }
+    const gotoBags = () =>{
+        history.push('/admin/bags')
+        toggleBoard()
+    }
+    const gotoShoes = () =>{
+        history.push('/admin/shoes')
+        toggleBoard()
+    }
+    const gotoWears = () =>{
+        history.push('/admin/wears')
+        toggleBoard()
+    }
     return ( <div>
-    <h1>Hello Admin, Whats your main focus today</h1>
-    <button onClick={() => gotoSales()}>Manage Sales</button>
-    <button onClick={() => gotoAccessories()}>Manage Accessories</button>
-    <button>Manage Bags</button>
-    <button>Manage Shoes</button>
-    <button>Manage Wears</button>
+                <h1>Hello Admin, Whats your main focus today</h1>
+                <button onClick={() => gotoSales()}>Manage Sales</button>
+                <button onClick={() => gotoAccessories()}>Manage Accessories</button>
+                <button onClick={() => gotoBags()}>Manage Bags</button>
+                <button onClick={() => gotoShoes()}>Manage Shoes</button>
+                <button onClick={() => gotoWears()}>Manage Wears</button>
           </div> );
 }
  

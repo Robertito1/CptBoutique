@@ -1,27 +1,27 @@
 import React, { useState, useEffect , useRef } from 'react'
 import { withRouter } from 'react-router-dom'
 import AdminItem from '../../components/adminItem/adminItem'
-import accessoriesServices from '../../services/accessories'
+import wearsServices from '../../services/wears'
 
 
-const AccessoriesAdmin = ({history}) => {
+const WearsAdmin = ({history}) => {
 
     const [user, setUser] = useState(null)
     const [images, setImages] = useState([])
     const [title, setTitle] = useState('')
     const [price, setPrice] = useState('') 
-    const [accessoriesArray, setAccessoriesArray] = useState([])
+    const [wearsArray, setWearsArray] = useState([])
 
     const form = useRef(null)
 
     useEffect(() => {
-     accessoriesServices
-      .getAccessories()
-      .then((res)=>{
-        setAccessoriesArray(accessoriesArray.concat(res.data))
-      })
-      // eslint-disable-next-line
-  }, [])
+        wearsServices
+        .getWears()
+        .then((res)=>{
+          setWearsArray(wearsArray.concat(res.data))
+        })
+        // eslint-disable-next-line
+    }, [])
 
     useEffect(() => {
         const loggedUserJSON = window.localStorage.getItem('loggedBlogappUser')
@@ -42,10 +42,11 @@ const AccessoriesAdmin = ({history}) => {
          headers: { Authorization: `bearer ${user.token}` },
    }
         
-     accessoriesServices
-     .createAccessories(formData , config)
+     wearsServices
+     .createWears(formData , config)
         .then( response => {
            console.log(response)
+           console.log(formData)
           }).catch(error => {
             console.log('fail', error)
           })
@@ -58,13 +59,13 @@ const AccessoriesAdmin = ({history}) => {
     const handleDelete = (id) =>{
       const config = {
         headers: { Authorization: `bearer ${user.token}` },
-     }
+  }
 
-      accessoriesServices
-      .deleteAccessories(id ,config)
+      wearsServices
+      .deleteWears(id , config)
       .then(res => { 
 
-        setAccessoriesArray(accessoriesArray.filter(item => item.id !== id ? item : null))
+        setWearsArray(wearsArray.filter(item => item.id !== id ? item : null))
          console.log(res)})
        
       console.log(id)
@@ -72,17 +73,19 @@ const AccessoriesAdmin = ({history}) => {
 
     return ( <div>
     <button onClick={()=> history.push('/admin')}>back</button>
-    <div>
-        <h1>Accessories</h1>
-         {accessoriesArray.map(item => <AdminItem details={item} key={item.id} handleDelete={handleDelete} />)} 
+        <div>
+        <h1>Wears</h1>
+         {wearsArray.map(item => <AdminItem details={item} key={item.id} handleDelete={handleDelete} />)} 
         </div>
+      
+        
         <form onSubmit={uploadForm} ref={form}>
-            <input type='text' value={title} name='title'  onChange={(e) => setTitle(e.target.value)} />
-            <input type='text' value={price} name='price'  onChange={(e) => setPrice(e.target.value)} />
+            <input type='text' value={title} name='title' onChange={(e) => setTitle(e.target.value)} />
+            <input type='text' value={price} name='price' onChange={(e) => setPrice(e.target.value)} />
             <input type='file' name="images" multiple onChange={(e) => setSelectedImages(e.target.files)} />
             <input type='submit' name='submit' />
         </form>
     </div> );
 }
  
-export default withRouter(AccessoriesAdmin);
+export default withRouter(WearsAdmin);

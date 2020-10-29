@@ -1,17 +1,17 @@
 import axios from 'axios'
-const baseUrl = 'http://localhost:3001/api/sales'
+const baseUrl = 'http://localhost:3001/api/bags'
 
 
-const getSales = () => {
+const getBags = () => {
     return axios.get(baseUrl)
 }
 
-const createSales = async(newObject, config) => { 
+const createBags = async(newObject, config) => { 
   const response = await axios.post(baseUrl, newObject, config)
  return response.data
 }
 
-const deleteSales = (id, config) => {
+const deleteBags = (id, config) => {
     return axios.delete(`${baseUrl}/${id}` , config)
 }
 
@@ -20,8 +20,8 @@ const updateSales = (objectUpdate, id ,config) => {
 }
 
 export default {
-    getSales,
-    createSales,
-    deleteSales,
+    getBags,
+    createBags,
+    deleteBags,
     updateSales
 }

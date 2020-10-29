@@ -2,29 +2,26 @@ import axios from 'axios'
 const baseUrl = 'http://localhost:3001/api/accessories'
 
 
-const getPersons = () => {
+const getAccessories = () => {
     return axios.get(baseUrl)
 }
 
 const createAccessories = async(newObject, config) => {
-    // const config = {
-    //     headers: { Authorization: token },
-    //   }
   const response = await axios.post(baseUrl, newObject, config)
  return response.data
 }
 
-const deletePerson = (id) => {
-    return axios.delete(`${baseUrl}/${id}`)
+const deleteAccessories = (id , config) => {
+    return axios.delete(`${baseUrl}/${id}` , config)
 }
 
-const updatePerson = (objectUpdate, name, id) => {
-    return axios.put(`${baseUrl}/${id}`, objectUpdate)
-}
+// const updateAccesories = (objectUpdate, id ,config) => {
+//     return axios.put(`${baseUrl}/${id}`, objectUpdate, config)
+// }
 
 export default {
-    getPersons,
+    getAccessories,
     createAccessories,
-    deletePerson,
-    updatePerson
+    deleteAccessories,
+    // updatePerson
 }

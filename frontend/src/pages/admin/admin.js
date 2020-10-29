@@ -5,6 +5,9 @@ import DashBoard from '../../components/adminDashboard/dashboard'
 import { Route, Switch } from 'react-router-dom'
 import SalesAdmin from './sales_admin'
 import AccessoriesAdmin from './accessories_admin'
+import BagsAdmin from './bags_admin'
+import ShoesAdmin from './shoes_admin'
+import WearsAdmin from './wears_admin'
 
 
 const AdminHome = () => {
@@ -69,8 +72,11 @@ const AdminHome = () => {
         <h1>Admin HomePage</h1>
         {displayAdminHomePage()}
         <Switch>
-        <Route exact path ="/admin/sales" component={() => <SalesAdmin />} /> 
-        <Route path ="/admin/accessories" component={() => <AccessoriesAdmin />} />
+          <Route path ="/admin/sales" component={() => <SalesAdmin />} /> 
+          <Route path ="/admin/accessories" component={() => <AccessoriesAdmin />} />
+          <Route path ="/admin/bags" component={() => <BagsAdmin />} />
+          <Route path ="/admin/shoes" component={() => <ShoesAdmin />} />
+          <Route path ="/admin/wears" component={() => <WearsAdmin />} />
         </Switch>
        </div> );
 }
