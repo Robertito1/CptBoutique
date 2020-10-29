@@ -1,14 +1,15 @@
 import React, { useState, useEffect , useRef } from 'react'
-import salesServices from '../../../services/sales'
+import { withRouter } from 'react-router-dom'
+import accessoriesServices from '../../services/accessories'
 
 
-const SalesAdmin = () => {
+const AccessoriesAdmin = ({history}) => {
 
     const [user, setUser] = useState(null)
     const form = useRef(null)
     const [images, setImages] = useState([])
     const [title, setTitle] = useState('')
-    const [price, setPrice] = useState('')
+    const [price, setPrice] = useState('') 
 
     useEffect(() => {
         const loggedUserJSON = window.localStorage.getItem('loggedBlogappUser')
@@ -29,22 +30,22 @@ const SalesAdmin = () => {
          headers: { Authorization: `bearer ${user.token}` },
    }
         
-     salesServices
-     .createSales(formData , config)
+     accessoriesServices
+     .createAccessories(formData , config)
         .then( response => {
            console.log(response)
-           console.log(formData)
           }).catch(error => {
             console.log('fail', error)
           })
     }
 
     const setSelectedImages = (object) => {
-           setImages(object)
+           setImages(images.concat(object))
     }
 
     return ( <div>
-        <h1>Bags</h1>
+    <button onClick={()=> history.push('/admin')}>back</button>
+        <h1>Accessories</h1>
         <form onSubmit={uploadForm} ref={form}>
             <input type='text' value={title} name='title'  onChange={(e) => setTitle(e.target.value)} />
             <input type='text' value={price} name='price'  onChange={(e) => setPrice(e.target.value)} />
@@ -54,4 +55,4 @@ const SalesAdmin = () => {
     </div> );
 }
  
-export default SalesAdmin;
+export default withRouter(AccessoriesAdmin);

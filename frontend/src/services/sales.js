@@ -2,29 +2,27 @@ import axios from 'axios'
 const baseUrl = 'http://localhost:3001/api/sales'
 
 
-const getPersons = () => {
+const getSales = () => {
     return axios.get(baseUrl)
 }
 
 const createSales = async(newObject, config) => {
-    // const config = {
-    //     headers: { Authorization: token },
-    //   }
+  
   const response = await axios.post(baseUrl, newObject, config)
  return response.data
 }
 
-const deletePerson = (id) => {
-    return axios.delete(`${baseUrl}/${id}`)
+const deleteSales = (id, config) => {
+    return axios.delete(`${baseUrl}/${id}` , config)
 }
 
-const updatePerson = (objectUpdate, name, id) => {
-    return axios.put(`${baseUrl}/${id}`, objectUpdate)
+const updateSales = (objectUpdate, id ,config) => {
+    return axios.put(`${baseUrl}/${id}`, objectUpdate , config)
 }
 
 export default {
-    getPersons,
+    getSales,
     createSales,
-    deletePerson,
-    updatePerson
+    deleteSales,
+    updateSales
 }

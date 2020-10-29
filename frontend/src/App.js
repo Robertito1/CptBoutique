@@ -8,7 +8,7 @@ import WearsPage from "./pages/wears/WearsPage";
 import AccessoriesPage from "./pages/accessories/AccessoriesPage";
 import Footer from "./components/footer/footer";
 import "./App.css";
-import AdminHome from "./pages/admin/home/admin";
+import AdminHome from "./pages/admin/admin";
 // import SalesAdmin from "./pages/admin/sales/sales_admin";
 
 //chrisdon95.github.io/NazaKingEvents/
@@ -19,8 +19,7 @@ function App() {
       <Header />
       <Switch>
         <Route exact path="/" render={() => <Homepage />} />
-        <Route path="/admin" component={() => <AdminHome />} /> 
-        {/* <Route path="/admin/sales" component={() => <SalesAdmin />} />  */}
+        <Route path="/admin" component={() => <AdminHome />} />  
         <Route path="/bags" component={() => <Bags />} />
         <Route path="/shoes" component={() => <ShoesPage />} />
         <Route path="/wears" component={() => <WearsPage />} />

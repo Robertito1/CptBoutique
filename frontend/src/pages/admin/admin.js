@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react'
-import { Switch, Route } from "react-router-dom";
-import Login from '../../../components/login/LoginForm'
-import loginService from '../../../services/login'
-import SalesAdmin from "../sales/sales_admin";
-
+import Login from '../../components/login/LoginForm'
+import loginService from '../../services/login'
+import DashBoard from '../../components/adminDashboard/dashboard'
+import { Route, Switch } from 'react-router-dom'
+import SalesAdmin from './sales_admin'
+import AccessoriesAdmin from './accessories_admin'
 
 
 const AdminHome = () => {
  
     const [user, setUser] = useState(null)
+    const [showBoard, setShowBoard] = useState(true)
 
     useEffect(() => {
         const loggedUserJSON = window.localStorage.getItem('loggedBlogappUser')
@@ -17,6 +19,7 @@ const AdminHome = () => {
           setUser(user)
           console.log(user.token)
         }
+        setShowBoard(true)
       }, [])
 
       const handleLogin = async (username, password) => {
@@ -46,23 +49,30 @@ const AdminHome = () => {
     
       }
 
+   const toggleBoard = () =>{
+     setShowBoard(false)
+   }
 
-
+   const displayAdminHomePage = () =>{
+     if(!showBoard){
+       return null
+     }
+     if(user){
+       return <DashBoard toggleBoard={toggleBoard}/>
+     }else{
+    return  <Login handleLogin={handleLogin} />
+    }
+   }
   
 
     return ( <div>
         <h1>Admin HomePage</h1>
-       <Login handleLogin={handleLogin} />
-       <Switch>
-        {/* <Route exact path="/" render={() => <Homepage />} />
-        <Route path="/admin" component={() => <AdminHome />} />  */}
-        <Route path="/admin/sales" component={() => <SalesAdmin />} /> 
-        {/* <Route path="/bags" component={() => <Bags />} />
-        <Route path="/shoes" component={() => <ShoesPage />} />
-        <Route path="/wears" component={() => <WearsPage />} /> */}
-        {/* <Route path="/accessories" component={() => <AccessoriesPage />} /> */}
-      </Switch>
-    </div> );
+        {displayAdminHomePage()}
+        <Switch>
+        <Route exact path ="/admin/sales" component={() => <SalesAdmin />} /> 
+        <Route path ="/admin/accessories" component={() => <AccessoriesAdmin />} />
+        </Switch>
+       </div> );
 }
  
 export default AdminHome;
