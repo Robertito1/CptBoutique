@@ -17,7 +17,7 @@ const SalesItem = ({ details }) => {
           <div className="card-text mb-0 text-center text-muted m-2">
             {details.title} <br />
             <p className="card-title text-center text-muted">
-              {details.price}
+            {details.price}
             </p>
           </div>
         </div>

@@ -47,6 +47,10 @@ const SalesAdmin = ({history}) => {
         .then( response => {
            console.log(response)
            console.log(formData)
+          //  setSalesArray(salesArray.concat(formData))
+           setImages([])
+           setTitle('')
+           setPrice('')
           }).catch(error => {
             console.log('fail', error)
           })

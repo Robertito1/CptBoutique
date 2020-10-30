@@ -47,6 +47,8 @@ const ShoesAdmin = ({history}) => {
         .then( response => {
            console.log(response)
            console.log(formData)
+           setPrice('')
+           setTitle('')
           }).catch(error => {
             console.log('fail', error)
           })

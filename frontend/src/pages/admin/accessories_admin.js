@@ -46,6 +46,9 @@ const AccessoriesAdmin = ({history}) => {
      .createAccessories(formData , config)
         .then( response => {
            console.log(response)
+           setPrice('')
+           setTitle('')
+          //  setImages(images.map(e => e? null: null))
           }).catch(error => {
             console.log('fail', error)
           })
