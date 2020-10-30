@@ -1,8 +1,18 @@
 .itemImg {
+  height: 300px;
+}
+
+.itemImgCarousel {
+  height: 500px;
+}
+
+@media only screen and (max-width: 639px) {
+  .itemImgCarousel {
+    height: 400px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .itemImgCarousel {
     height: 300px;
   }
-  
-  .itemImgCarousel {
-    height: 500px;
-  }
-  
+}

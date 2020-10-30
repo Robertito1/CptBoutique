@@ -26,11 +26,11 @@ const DashBoard = ({history , toggleBoard}) => {
     }
     return ( <div>
                 <h1>Hello Admin, Whats your main focus today</h1>
-                <button onClick={() => gotoSales()}>Manage Sales</button>
-                <button onClick={() => gotoAccessories()}>Manage Accessories</button>
-                <button onClick={() => gotoBags()}>Manage Bags</button>
-                <button onClick={() => gotoShoes()}>Manage Shoes</button>
-                <button onClick={() => gotoWears()}>Manage Wears</button>
+                <button className='btn btn-primary m-3' onClick={() => gotoSales()}>Manage Sales</button>
+                <button className='btn btn-primary m-3' onClick={() => gotoAccessories()}>Manage Accessories</button>
+                <button className='btn btn-primary m-3' onClick={() => gotoBags()}>Manage Bags</button>
+                <button className='btn btn-primary m-3' onClick={() => gotoShoes()}>Manage Shoes</button>
+                <button className='btn btn-primary m-3' onClick={() => gotoWears()}>Manage Wears</button>
           </div> );
 }
  

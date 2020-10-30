@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Login from '../../components/login/LoginForm'
 import loginService from '../../services/login'
 import DashBoard from '../../components/adminDashboard/dashboard'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch ,withRouter } from 'react-router-dom'
 import SalesAdmin from './sales_admin'
 import AccessoriesAdmin from './accessories_admin'
 import BagsAdmin from './bags_admin'
@@ -10,7 +10,7 @@ import ShoesAdmin from './shoes_admin'
 import WearsAdmin from './wears_admin'
 
 
-const AdminHome = () => {
+const AdminHome = ({history}) => {
  
     const [user, setUser] = useState(null)
     const [showBoard, setShowBoard] = useState(true)
@@ -56,6 +56,16 @@ const AdminHome = () => {
      setShowBoard(false)
    }
 
+   const handleLogout = async () => {
+    await window.localStorage.removeItem('loggedBlogappUser')
+    // setNotificationStatus(true)
+    // setNotificationMessage(`${user.name} Logged out`)
+     await setUser(null)
+     await history.push('/admin')
+    // setTimeout(() => {
+    //   setNotificationMessage(null)
+    // }, 5000)
+  }
    const displayAdminHomePage = () =>{
      if(!showBoard){
        return null
@@ -70,6 +80,9 @@ const AdminHome = () => {
 
     return ( <div>
         <h1>Admin HomePage</h1>
+          <span>
+              <button onClick={handleLogout}>logout</button>
+          </span>
         {displayAdminHomePage()}
         <Switch>
           <Route path ="/admin/sales" component={() => <SalesAdmin />} /> 
@@ -81,4 +94,4 @@ const AdminHome = () => {
        </div> );
 }
  
-export default AdminHome;
+export default withRouter(AdminHome);

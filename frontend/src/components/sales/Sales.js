@@ -2,12 +2,7 @@ import React, { useState, useEffect } from "react";
 import SalesItem from "../SalesItem/SalesItem";
 import salesServices from '../../services/sales'
 import "./sales.css";
-// import image1 from "../../assets/accessories1.png";
-// import image2 from "../../assets/wears9.png";
-// import image3 from "../../assets/shoes1.png";
-// import image4 from "../../assets/bag10.png";
-// import image5 from "../../assets/accessories6.png";
-// import image6 from "../../assets/wears3.png";
+
 
 const Sales = () => {
   const [salesArray, setSalesArray] = useState([]);
@@ -17,6 +12,7 @@ const Sales = () => {
     .then((res)=>{
       setSalesArray(salesArray.concat(res.data))
     })
+// eslint-disable-next-line
   }, []);
   return (
     <div>

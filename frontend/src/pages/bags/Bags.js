@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import SalesItem from "../../components/SalesItem/SalesItem";
 import bagsServices from '../../services/bags'
-// import bagsData from "../../assets/bagsinfo";
 import "./bags.css";
 
 const Bags = () => {
@@ -12,6 +11,7 @@ const Bags = () => {
     .then((res)=>{
       setBagsArray(bagsArray.concat(res.data))
     });
+  // eslint-disable-next-line
   }, []);
   return (
     <div>

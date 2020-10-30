@@ -82,9 +82,15 @@ const WearsAdmin = ({history}) => {
       
         
         <form onSubmit={uploadForm} ref={form}>
-            <input type='text' value={title} name='title' onChange={(e) => setTitle(e.target.value)} />
-            <input type='text' value={price} name='price' onChange={(e) => setPrice(e.target.value)} />
-            <input type='file' name="images" multiple onChange={(e) => setSelectedImages(e.target.files)} />
+        <p>
+         Item Name: <input type='text' value={title} name='title' onChange={(e) => setTitle(e.target.value)} />
+        </p>
+        <p>
+          Price: <input type='text' value={price} name='price' onChange={(e) => setPrice(e.target.value)} />
+        </p>
+        <p>
+          Select Images: <input type='file' name="images" multiple onChange={(e) => setSelectedImages(e.target.files)} />
+        </p>
             <input type='submit' name='submit' />
         </form>
     </div> );
