@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
 import SalesItem from "../../components/SalesItem/SalesItem";
-import wearsData from "../../assets/wearsData";
+import wearsServices from '../../services/wears'
+// import wearsData from "../../assets/wearsData";
 import "./wears.css";
 
 const WearsPage = () => {
   const [wearsArray, setWearsArray] = useState([]);
   useEffect(() => {
-    setWearsArray(wearsData);
+    wearsServices
+    .getWears()
+    .then((res)=>{
+      setWearsArray(wearsArray.concat(res.data))
+    })
   }, []);
 
   return (

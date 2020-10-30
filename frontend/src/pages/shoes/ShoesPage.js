@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
 import SalesItem from "../../components/SalesItem/SalesItem";
-import shoesData from "../../assets/shoesData";
+import shoesServices from '../../services/shoes'
+// import shoesData from "../../assets/shoesData";
 import "./shoes.css";
 
 const ShoesPage = () => {
   const [shoesArray, setShoesArray] = useState([]);
   useEffect(() => {
-    setShoesArray(shoesData);
+    shoesServices
+    .getShoes()
+    .then((res)=>{
+      setShoesArray(shoesArray.concat(res.data))
+    });
   }, []);
   return (
     <div>

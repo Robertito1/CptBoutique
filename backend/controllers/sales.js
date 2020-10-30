@@ -20,7 +20,7 @@ salesRouter.get("/:id", (request, response, next) => {
     .catch((error) => next(error));
 });
 
-salesRouter.post("/", parser.array("images", 2), async (request, response, next) => {
+salesRouter.post("/", parser.array("images", 3), async (request, response, next) => {
   const body = request.body;
   const imagesResponse = request.files
   const images = imagesResponse.map(e => e.path)

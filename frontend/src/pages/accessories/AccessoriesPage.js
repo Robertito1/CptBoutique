@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
 import SalesItem from "../../components/SalesItem/SalesItem";
-import accessoriesData from "../../assets/accessoriesData";
+import accessoriesServices from '../../services/accessories'
+// import accessoriesData from "../../assets/accessoriesData";
 import "./accessories.css";
 
 const AccessoriesPage = () => {
   const [accessoriesArray, setAccessoriesArray] = useState([]);
   useEffect(() => {
-    setAccessoriesArray(accessoriesData);
+    accessoriesServices
+    .getAccessories()
+    .then((res)=>{
+      setAccessoriesArray(accessoriesArray.concat(res.data))
+    })
   }, []);
   return (
     <div>

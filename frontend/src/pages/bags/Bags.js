@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
 import SalesItem from "../../components/SalesItem/SalesItem";
-import bagsData from "../../assets/bagsinfo";
+import bagsServices from '../../services/bags'
+// import bagsData from "../../assets/bagsinfo";
 import "./bags.css";
 
 const Bags = () => {
   const [bagsArray, setBagsArray] = useState([]);
   useEffect(() => {
-    setBagsArray(bagsData);
+    bagsServices
+    .getBags()
+    .then((res)=>{
+      setBagsArray(bagsArray.concat(res.data))
+    });
   }, []);
   return (
     <div>

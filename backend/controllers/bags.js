@@ -20,7 +20,7 @@ bagsRouter.get("/:id", (request, response, next) => {
     .catch((error) => next(error));
 });
 
-bagsRouter.post("/", parser.array("images", 2), async (request, response, next) => {
+bagsRouter.post("/", parser.array("images", 3), async (request, response, next) => {
   const body = request.body;
   const imagesResponse = request.files
   const images = imagesResponse.map(e => e.path)

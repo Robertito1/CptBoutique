@@ -21,7 +21,7 @@ function ModalComponent({details}) {
       >
         <Modal.Header closeButton>
           <Modal.Title id={details.id}>
-            {details.name}
+            {details.title}
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -45,6 +45,10 @@ function ModalComponent({details}) {
       <div className="carousel-item">
         <img className="d-block w-100 itemImgCarousel" src={details.images[1]}
           alt="Second slide"/>
+      </div>
+      <div className="carousel-item">
+        <img className="d-block w-100 itemImgCarousel" src={details.images[2]}
+          alt="third slide"/>
       </div>
        {/* <!--/Second slide--> */}
     </div>

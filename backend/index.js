@@ -5,7 +5,6 @@ const express = require('express')
 const app = express()
 const cors = require("cors");
 const config = require("./utils/config");
-// const parser = require("./utils/upload.config");
 const middleware = require("./utils/middleware");
 const loginRouter = require("./controllers/login");
 const usersRouter = require("./controllers/user");
@@ -44,9 +43,7 @@ app.use("/api/accessories" , accessoriesRouter)
 app.use("/api/bags" , bagsRouter)
 app.use("/api/shoes" , shoesRouter)
 app.use("/api/wears" , wearsRouter)
-// app.post('/api/images', parser.array("images", 2),(req, res) => {
-//         res.json(req.files)
-//   });
+
 
 
 app.use(middleware.unknownEndpoint);

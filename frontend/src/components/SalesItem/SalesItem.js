@@ -1,5 +1,6 @@
 import React from "react";
-import ModalComponent from "../modal/modal"
+// import ModalComponent from "../modal/modal"
+import ModalComponent from '../modalNew/modalNew'
 import "./salesitem.css";
 
 const SalesItem = ({ details }) => {
@@ -14,7 +15,7 @@ const SalesItem = ({ details }) => {
         </div>
         <div className="order-2">
           <div className="card-text mb-0 text-center text-muted m-2">
-            {details.name} <br />
+            {details.title} <br />
             <p className="card-title text-center text-muted">
               {details.price}
             </p>
