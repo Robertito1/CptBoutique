@@ -1,15 +1,21 @@
 import React from "react";
-// import ModalComponent from "../modal/modal"
-import ModalComponent from '../modalNew/modalNew'
+import {withRouter} from 'react-router-dom'
+// import ModalComponent from '../modalNew/modalNew'
 import "./salesitem.css";
 
-const SalesItem = ({ details }) => {
+const SalesItem = ({ details, updateCart, history, match }) => {
+
+  const viewProduct = (item) =>{
+    history.push(`${match.url}/${item.id}`)
+    console.log(history)
+  }
   return (
     <div className="card border-0">
-      <ModalComponent details={details} />
+      {/* <ModalComponent details={details} /> */}
+      <img src={details.images[0]} alt='product' onClick={()=> viewProduct(details)}/>
       <div className="d-flex  justify-content-between card-body p-0 mb-0">
         <div className="order-1">
-          <button href="/categories" className="btn text-center text-white m-2 order-btn">
+          <button href="/categories" className="btn text-center text-white m-2 order-btn" onClick={()=>updateCart()}>
             order
           </button>
         </div>
@@ -26,4 +32,4 @@ const SalesItem = ({ details }) => {
   );
 };
 
-export default SalesItem;
+export default withRouter(SalesItem);

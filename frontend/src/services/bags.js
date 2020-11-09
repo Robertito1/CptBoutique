@@ -5,6 +5,9 @@ const baseUrl = 'http://localhost:3001/api/bags'
 const getBags = () => {
     return axios.get(baseUrl)
 }
+const getSingleBag = (id) => {
+    return axios.get(`${baseUrl}/${id}`)
+}
 
 const createBags = async(newObject, config) => { 
   const response = await axios.post(baseUrl, newObject, config)
@@ -21,6 +24,7 @@ const updateSales = (objectUpdate, id ,config) => {
 
 export default {
     getBags,
+    getSingleBag,
     createBags,
     deleteBags,
     updateSales

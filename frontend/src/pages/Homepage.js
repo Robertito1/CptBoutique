@@ -2,11 +2,11 @@ import React from "react";
 import Sales from "../components/sales/Sales";
 import Slides from "../components/slide/slide";
 
-const Homepage = () => {
+const Homepage = ({updateCart}) => {
   return (
     <div>
       <Slides />
-      <Sales />
+      <Sales updateCart={updateCart}/>
     </div>
   );
 };
