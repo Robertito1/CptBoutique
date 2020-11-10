@@ -34,7 +34,10 @@ salesRouter.post("/", parser.array("images", 3), async (request, response, next)
     let sale = new Sale({
       title: body.title,
       price: body.price,
-      images: images,
+      colors:body.colors,
+      sizes:body.sizes,
+      images:images,
+      description: body.description
     });
 
     const savedSale = await sale.save();

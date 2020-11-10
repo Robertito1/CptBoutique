@@ -34,7 +34,10 @@ shoesRouter.post("/", parser.array("images", 3), async (request, response, next)
     let shoe = new Shoe({
       title: body.title,
       price: body.price,
-      images: images,
+      colors:body.colors,
+      sizes:body.sizes,
+      images:images,
+      description: body.description
     });
 
     const savedShoe = await shoe.save();

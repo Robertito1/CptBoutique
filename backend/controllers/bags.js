@@ -34,7 +34,10 @@ bagsRouter.post("/", parser.array("images", 3), async (request, response, next) 
     let bag = new Bag({
       title: body.title,
       price: body.price,
-      images: images,
+      colors:body.colors,
+      sizes:body.sizes,
+      images:images,
+      description: body.description
     });
 
     const savedBag = await bag.save();

@@ -34,7 +34,10 @@ wearsRouter.post("/", parser.array("images", 3), async (request, response, next)
     let wear = new Wear({
       title: body.title,
       price: body.price,
-      images: images,
+      colors:body.colors,
+      sizes:body.sizes,
+      images:images,
+      description: body.description
     });
 
     const savedWear = await wear.save();
