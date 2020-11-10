@@ -6,6 +6,10 @@ const getWears = () => {
     return axios.get(baseUrl)
 }
 
+const getSingleWear = (id) => {
+    return axios.get(`${baseUrl}/${id}`)
+}
+
 const createWears = async(newObject, config) => { 
   const response = await axios.post(baseUrl, newObject, config)
  return response.data
@@ -21,6 +25,7 @@ const deleteWears = (id, config) => {
 
 export default {
     getWears,
+    getSingleWear,
     createWears,
     deleteWears,
     // updateSales

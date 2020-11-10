@@ -5,8 +5,13 @@ import "./salesitem.css";
 
 const SalesItem = ({ details, updateCart, history, match }) => {
 
+
   const viewProduct = (item) =>{
-    history.push(`${match.url}/${item.id}`)
+    if(match.path !== '/'){
+          history.push(`${match.url}/${item.id}`)
+    }else{
+      history.push(`${item.id}`)
+    }
     console.log(history)
   }
   return (

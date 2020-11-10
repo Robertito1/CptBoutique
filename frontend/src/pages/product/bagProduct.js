@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {withRouter} from 'react-router-dom'
 import bagsService from '../../services/bags'
 
-const ProductPage = ({match}) => {
-    console.log(match)
+const BagProductPage = ({match}) => {
    
      const [product, setProduct] = useState(null)
 
@@ -13,13 +12,17 @@ const ProductPage = ({match}) => {
                   setProduct(res.data)
                   console.log(product)
               })
+    // eslint-disable-next-line
      },[])
 
    const renderProduct = () =>{
        if(product === null){
            return <div>loading</div>
        }else{
-           return <div>{product.title}</div>
+           return <div>
+               <h1>{product.title}</h1>
+               <img src={product.images[0]} alt='bag'/>
+           </div>
        }
    }
     return ( <div>
@@ -27,4 +30,4 @@ const ProductPage = ({match}) => {
     </div> );
 }
  
-export default withRouter(ProductPage);
+export default withRouter(BagProductPage);

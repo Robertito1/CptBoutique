@@ -6,6 +6,10 @@ const getSales = () => {
     return axios.get(baseUrl)
 }
 
+const getSingleSales = (id) => {
+    return axios.get(`${baseUrl}/${id}`)
+}
+
 const createSales = async(newObject, config) => { 
   const response = await axios.post(baseUrl, newObject, config)
  return response.data
@@ -21,6 +25,7 @@ const updateSales = (objectUpdate, id ,config) => {
 
 export default {
     getSales,
+    getSingleSales,
     createSales,
     deleteSales,
     updateSales

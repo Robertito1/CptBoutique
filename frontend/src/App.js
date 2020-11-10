@@ -9,7 +9,12 @@ import AccessoriesPage from "./pages/accessories/AccessoriesPage";
 import Footer from "./components/footer/footer";
 import "./App.css";
 import AdminHome from "./pages/admin/admin";
-import ProductPage from './pages/product/product';
+import BagProductPage from './pages/product/bagProduct';
+import SalesProductPage from './pages/product/saleProduct';
+import WearProductPage from './pages/product/wearProduct'
+import ShoeProductPage from './pages/product/shoeProduct'
+import AccessoryProductPage from './pages/product/accessoryProduct'
+
 // import SalesAdmin from "./pages/admin/sales/sales_admin";
 
 //chrisdon95.github.io/NazaKingEvents/
@@ -32,13 +37,14 @@ function App() {
         <Route exact path="/" render={() => <Homepage updateCart={updateCart}/>} />
         <Route path="/admin" component={() => <AdminHome />} />  
         <Route exact path="/bags" component={() => <Bags />} />
-        <Route path="/shoes" component={() => <ShoesPage />} />
-        <Route path="/wears" component={() => <WearsPage />} />
-        <Route path="/accessories" component={() => <AccessoriesPage />} />
-        <Route path='/bags/:product' component={() =><ProductPage />} />
-        <Route path='/shoes/:product' component={() =><ProductPage />} />
-        <Route path='/wears/:product' component={() =><ProductPage />} />
-        <Route path='/accessories/:product' component={() =><ProductPage />} />
+        <Route exact path="/shoes" component={() => <ShoesPage />} />
+        <Route exact path="/wears" component={() => <WearsPage />} />
+        <Route exact path="/accessories" component={() => <AccessoriesPage />} />
+        <Route path='/bags/:product' component={() =><BagProductPage />} />
+        <Route path='/shoes/:product' component={() =><ShoeProductPage />} />
+        <Route path='/wears/:product' component={() =><WearProductPage />} />
+        <Route path='/accessories/:product' component={() =><AccessoryProductPage />} />
+        <Route path='/:product' component={() =><SalesProductPage />} />
       </Switch>
       <Footer />
     </div>
