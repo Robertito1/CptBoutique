@@ -4,7 +4,7 @@ import salesServices from '../../services/sales'
 import "./sales.css";
 
 
-const Sales = ({updateCart}) => {
+const Sales = () => {
   const [salesArray, setSalesArray] = useState([]);
   useEffect(() => {
     salesServices
@@ -21,7 +21,7 @@ const Sales = ({updateCart}) => {
       <div className="container-fluid">
         <div className="row d-flex  justify-content-center">
           {salesArray.map((sales) => (
-            <SalesItem details={sales} key={sales.title} updateCart={updateCart}/>
+            <SalesItem details={sales} key={sales.title} />
           ))}
         </div>
       </div>

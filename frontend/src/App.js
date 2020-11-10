@@ -14,6 +14,8 @@ import SalesProductPage from './pages/product/saleProduct';
 import WearProductPage from './pages/product/wearProduct'
 import ShoeProductPage from './pages/product/shoeProduct'
 import AccessoryProductPage from './pages/product/accessoryProduct'
+import Cart from './pages/cart/cart'
+import {isEqual} from 'lodash'
 
 // import SalesAdmin from "./pages/admin/sales/sales_admin";
 
@@ -21,30 +23,37 @@ import AccessoryProductPage from './pages/product/accessoryProduct'
 
 function App() {
 
-     const [cartItems, setCartItems] = useState(0)
+     const [cartItems, setCartItems] = useState([])
 
-     const updateCart = () =>{
-     setCartItems(cartItems + 1)
-     }
+     const updateCart = (obj) =>{
+     let duplicate =  cartItems.find(e =>  isEqual(obj, e))
+      if(duplicate){
+        setCartItems(cartItems.concat(obj))
+      }
+     else{setCartItems(cartItems.concat(obj))}
+     console.log(cartItems)
+    }
+
   return (
     <div className="App">
       <Header />
       <div>
         cart
-        <span className='badge badge-pill badge-secondary'>{cartItems}</span>
+        <span className='badge badge-pill badge-secondary'>{cartItems.length}</span>
       </div>
       <Switch>
-        <Route exact path="/" render={() => <Homepage updateCart={updateCart}/>} />
+        <Route exact path="/" render={() => <Homepage/>} />
         <Route path="/admin" component={() => <AdminHome />} />  
         <Route exact path="/bags" component={() => <Bags />} />
         <Route exact path="/shoes" component={() => <ShoesPage />} />
         <Route exact path="/wears" component={() => <WearsPage />} />
+        <Route path='/cart' component={() =><Cart cartItems={cartItems}/>} />
         <Route exact path="/accessories" component={() => <AccessoriesPage />} />
-        <Route path='/bags/:product' component={() =><BagProductPage />} />
-        <Route path='/shoes/:product' component={() =><ShoeProductPage />} />
-        <Route path='/wears/:product' component={() =><WearProductPage />} />
-        <Route path='/accessories/:product' component={() =><AccessoryProductPage />} />
-        <Route path='/:product' component={() =><SalesProductPage />} />
+        <Route path='/bags/:product' component={() =><BagProductPage updateCart={updateCart}/>} />
+        <Route path='/shoes/:product' component={() =><ShoeProductPage updateCart={updateCart}/>} />
+        <Route path='/wears/:product' component={() =><WearProductPage updateCart={updateCart}/>} />
+        <Route path='/accessories/:product' component={() =><AccessoryProductPage updateCart={updateCart}/>} />
+        <Route path='/:product' component={() =><SalesProductPage updateCart={updateCart}/>} />
       </Switch>
       <Footer />
     </div>

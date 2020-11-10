@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {withRouter} from 'react-router-dom'
 import shoesService from '../../services/shoes'
 
-const ShoeProductPage = ({match}) => {
+const ShoeProductPage = ({match, updateCart}) => {
    
      const [product, setProduct] = useState(null)
 
@@ -22,6 +22,7 @@ const ShoeProductPage = ({match}) => {
            return <div>
                <h1>{product.title}</h1>
                <img src={product.images[0]} alt='wear'/>
+               <button onClick={()=>updateCart(product)}>add to cart</button>
            </div>
        }
    }

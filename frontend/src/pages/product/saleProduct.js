@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {withRouter} from 'react-router-dom'
 import salesService from '../../services/sales'
 
-const SalesProductPage = ({match}) => {
+const SalesProductPage = ({match, updateCart}) => {
    
      const [product, setProduct] = useState(null)
 
@@ -22,6 +22,7 @@ const SalesProductPage = ({match}) => {
            return <div>
                <h1>{product.title}</h1>
                <img src={product.images[0]} alt='sale'/>
+               <button onClick={()=>updateCart(product)}>add to cart</button>
            </div>
        }
    }

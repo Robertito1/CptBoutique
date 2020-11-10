@@ -3,7 +3,7 @@ import {withRouter} from 'react-router-dom'
 // import ModalComponent from '../modalNew/modalNew'
 import "./salesitem.css";
 
-const SalesItem = ({ details, updateCart, history, match }) => {
+const SalesItem = ({ details, history, match }) => {
 
 
   const viewProduct = (item) =>{
@@ -20,7 +20,7 @@ const SalesItem = ({ details, updateCart, history, match }) => {
       <img src={details.images[0]} alt='product' onClick={()=> viewProduct(details)}/>
       <div className="d-flex  justify-content-between card-body p-0 mb-0">
         <div className="order-1">
-          <button href="/categories" className="btn text-center text-white m-2 order-btn" onClick={()=>updateCart()}>
+          <button href="/categories" className="btn text-center text-white m-2 order-btn" >
             order
           </button>
         </div>
