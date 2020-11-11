@@ -52,18 +52,18 @@ function App() {
         <Route exact path="/bags" component={() => <Bags />} />
         <Route exact path="/shoes" component={() => <ShoesPage />} />
         <Route exact path="/wears" component={() => <WearsPage />} />
-        <Route path='/cart' component={() =><Cart cartItems={cartItems}/>} />
         <Route exact path="/accessories" component={() => <AccessoriesPage />} />
-        <Route path='/bags/:product' component={() =><BagProductPage updateCart={updateCart}/>} />
-        <Route path='/shoes/:product' component={() =><ShoeProductPage updateCart={updateCart}/>} />
-        <Route path='/wears/:product' component={() =><WearProductPage updateCart={updateCart}/>} />
-        <Route path='/accessories/:product' component={() =><AccessoryProductPage updateCart={updateCart}/>} />
-        <Route path='/:product' component={() =><SalesProductPage updateCart={updateCart}/>} />
+        <Route path='/cart' component={() =><Cart cartItems={cartItems}/>} />
         <Route path ="/admin/sales" component={() => <SalesAdmin />} /> 
         <Route path ="/admin/accessories" component={() => <AccessoriesAdmin />} />
         <Route path ="/admin/bags" component={() => <BagsAdmin />} />
         <Route path ="/admin/shoes" component={() => <ShoesAdmin />} />
         <Route path ="/admin/wears" component={() => <WearsAdmin />} />
+        <Route path='/bags/:product' component={() =><BagProductPage updateCart={updateCart}/>} />
+        <Route path='/shoes/:product' component={() =><ShoeProductPage updateCart={updateCart}/>} />
+        <Route path='/wears/:product' component={() =><WearProductPage updateCart={updateCart}/>} />
+        <Route path='/accessories/:product' component={() =><AccessoryProductPage updateCart={updateCart}/>} />
+        <Route path='/:product' component={() =><SalesProductPage updateCart={updateCart}/>} />
       </Switch>
       <Footer />
     </div>

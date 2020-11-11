@@ -1,5 +1,5 @@
 import React from "react";
-import ModalComponent from "../modalNew/modalNew"
+// import ModalComponent from "../modalNew/modalNew"
 import "../SalesItem/salesitem.css";
 
 const AdminItem = ({ details, handleDelete}) => {
@@ -12,7 +12,7 @@ const AdminItem = ({ details, handleDelete}) => {
 
   return (
     <div className="card border-0">
-      <ModalComponent details={details} />
+      {/* <ModalComponent details={details} /> */}
       <div className="d-flex  justify-content-between card-body p-0 mb-0">
         <div className="order-1">
           <button onClick={()=> raiseDelete(details.id)} className="btn text-center text-white m-2 order-btn">
