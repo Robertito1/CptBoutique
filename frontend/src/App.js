@@ -16,6 +16,11 @@ import ShoeProductPage from './pages/product/shoeProduct'
 import AccessoryProductPage from './pages/product/accessoryProduct'
 import Cart from './pages/cart/cart'
 import {isEqual} from 'lodash'
+import SalesAdmin from './pages/admin/sales_admin'
+import AccessoriesAdmin from './pages/admin/accessories_admin'
+import BagsAdmin from './pages/admin/bags_admin'
+import ShoesAdmin from './pages/admin/shoes_admin'
+import WearsAdmin from './pages/admin/wears_admin'
 
 // import SalesAdmin from "./pages/admin/sales/sales_admin";
 
@@ -43,7 +48,7 @@ function App() {
       </div>
       <Switch>
         <Route exact path="/" render={() => <Homepage/>} />
-        <Route path="/admin" component={() => <AdminHome />} />  
+        <Route exact path="/admin" component={() => <AdminHome />} />  
         <Route exact path="/bags" component={() => <Bags />} />
         <Route exact path="/shoes" component={() => <ShoesPage />} />
         <Route exact path="/wears" component={() => <WearsPage />} />
@@ -54,6 +59,11 @@ function App() {
         <Route path='/wears/:product' component={() =><WearProductPage updateCart={updateCart}/>} />
         <Route path='/accessories/:product' component={() =><AccessoryProductPage updateCart={updateCart}/>} />
         <Route path='/:product' component={() =><SalesProductPage updateCart={updateCart}/>} />
+        <Route path ="/admin/sales" component={() => <SalesAdmin />} /> 
+        <Route path ="/admin/accessories" component={() => <AccessoriesAdmin />} />
+        <Route path ="/admin/bags" component={() => <BagsAdmin />} />
+        <Route path ="/admin/shoes" component={() => <ShoesAdmin />} />
+        <Route path ="/admin/wears" component={() => <WearsAdmin />} />
       </Switch>
       <Footer />
     </div>

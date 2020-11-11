@@ -70,9 +70,12 @@ salesRouter.put("/:id", async (request, response, next) => {
   const sale = {
     title: body.title,
     price: body.price,
+    colors:body.colors,
+    sizes:body.sizes,
+    description: body.description
   };
   try {
-    const updatedSale = await Sale.findByIdAndUpdate(request.params.id, {}, {
+    const updatedSale = await Sale.findByIdAndUpdate(request.params.id, sale, {
       new: true,
       runValidators: true,
     });

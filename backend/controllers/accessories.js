@@ -67,17 +67,20 @@ accessoriesRouter.delete("/:id", async (request, response, next) => {
 accessoriesRouter.put("/:id", async (request, response, next) => {
   const body = request.body;
 
-  const sale = {
+  const accessory = {
     title: body.title,
     price: body.price,
+    colors:body.colors,
+    sizes:body.sizes,
+    description: body.description
   };
   try {
-    const updatedSale = await Sale.findByIdAndUpdate(request.params.id, {}, {
+    const updatedAccessory = await Accessory.findByIdAndUpdate(request.params.id, accessory, {
       new: true,
       runValidators: true,
     });
 
-    response.json(updatedSale);
+    response.json(updatedAccessory);
   } catch (error) {
     next(error);
   }

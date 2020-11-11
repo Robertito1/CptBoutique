@@ -2,12 +2,8 @@ import React, { useState, useEffect } from 'react'
 import Login from '../../components/login/LoginForm'
 import loginService from '../../services/login'
 import DashBoard from '../../components/adminDashboard/dashboard'
-import { Route, Switch ,withRouter } from 'react-router-dom'
-import SalesAdmin from './sales_admin'
-import AccessoriesAdmin from './accessories_admin'
-import BagsAdmin from './bags_admin'
-import ShoesAdmin from './shoes_admin'
-import WearsAdmin from './wears_admin'
+import { withRouter } from 'react-router-dom'
+
 
 
 const AdminHome = ({history}) => {
@@ -84,13 +80,6 @@ const AdminHome = ({history}) => {
               <button onClick={handleLogout}>logout</button>
           </span>
         {displayAdminHomePage()}
-        <Switch>
-          <Route path ="/admin/sales" component={() => <SalesAdmin />} /> 
-          <Route path ="/admin/accessories" component={() => <AccessoriesAdmin />} />
-          <Route path ="/admin/bags" component={() => <BagsAdmin />} />
-          <Route path ="/admin/shoes" component={() => <ShoesAdmin />} />
-          <Route path ="/admin/wears" component={() => <WearsAdmin />} />
-        </Switch>
        </div> );
 }
  

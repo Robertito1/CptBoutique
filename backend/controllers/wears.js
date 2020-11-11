@@ -67,17 +67,20 @@ wearsRouter.delete("/:id", async (request, response, next) => {
 wearsRouter.put("/:id", async (request, response, next) => {
   const body = request.body;
 
-  const sale = {
+  const wear = {
     title: body.title,
     price: body.price,
+    colors:body.colors,
+    sizes:body.sizes,
+    description: body.description
   };
   try {
-    const updatedSale = await Sale.findByIdAndUpdate(request.params.id, {}, {
+    const updatedWear = await Wear.findByIdAndUpdate(request.params.id, {wear}, {
       new: true,
       runValidators: true,
     });
 
-    response.json(updatedSale);
+    response.json(updatedWear);
   } catch (error) {
     next(error);
   }

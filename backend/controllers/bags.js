@@ -67,17 +67,20 @@ bagsRouter.delete("/:id", async (request, response, next) => {
 bagsRouter.put("/:id", async (request, response, next) => {
   const body = request.body;
 
-  const sale = {
+  const bag = {
     title: body.title,
     price: body.price,
+    colors:body.colors,
+    sizes:body.sizes,
+    description: body.description
   };
   try {
-    const updatedSale = await Sale.findByIdAndUpdate(request.params.id, {}, {
+    const updatedBag = await Bag.findByIdAndUpdate(request.params.id, bag, {
       new: true,
       runValidators: true,
     });
 
-    response.json(updatedSale);
+    response.json(updatedBag);
   } catch (error) {
     next(error);
   }

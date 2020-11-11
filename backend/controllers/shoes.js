@@ -67,17 +67,20 @@ shoesRouter.delete("/:id", async (request, response, next) => {
 shoesRouter.put("/:id", async (request, response, next) => {
   const body = request.body;
 
-  const sale = {
+  const shoe = {
     title: body.title,
     price: body.price,
+    colors:body.colors,
+    sizes:body.sizes,
+    description: body.description
   };
   try {
-    const updatedSale = await Sale.findByIdAndUpdate(request.params.id, {}, {
+    const updatedShoe = await Shoe.findByIdAndUpdate(request.params.id, shoe, {
       new: true,
       runValidators: true,
     });
 
-    response.json(updatedSale);
+    response.json(updatedShoe);
   } catch (error) {
     next(error);
   }
