@@ -4,9 +4,7 @@ const Cart = ({cartItems}) => {
 
     return (
          <div>
-            <h1>
-                {cartItems.length}
-            </h1>
+            {cartItems.map(e => <p>{e.name}</p>)}
          </div>
           );
 }

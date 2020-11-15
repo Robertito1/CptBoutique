@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { Switch, Route } from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import Header from "./components/header/Header";
@@ -7,7 +7,6 @@ import ShoesPage from "./pages/shoes/ShoesPage";
 import WearsPage from "./pages/wears/WearsPage";
 import AccessoriesPage from "./pages/accessories/AccessoriesPage";
 import Footer from "./components/footer/footer";
-import "./App.css";
 import AdminHome from "./pages/admin/admin";
 import BagProductPage from './pages/product/bagProduct';
 import SalesProductPage from './pages/product/saleProduct';
@@ -21,8 +20,7 @@ import AccessoriesAdmin from './pages/admin/accessories_admin'
 import BagsAdmin from './pages/admin/bags_admin'
 import ShoesAdmin from './pages/admin/shoes_admin'
 import WearsAdmin from './pages/admin/wears_admin'
-
-// import SalesAdmin from "./pages/admin/sales/sales_admin";
+import "./App.css";
 
 //chrisdon95.github.io/NazaKingEvents/
 
@@ -30,12 +28,27 @@ function App() {
 
      const [cartItems, setCartItems] = useState([])
 
-     const updateCart = (obj) =>{
+     useEffect(() => {
+      const cartInStorage = window.localStorage.getItem('productsInCart')
+      if (cartInStorage) {
+        const savedCartArray = JSON.parse(cartInStorage)
+        setCartItems(savedCartArray)
+        console.log(cartItems)
+      }
+    }, [])
+
+    useEffect(() => {
+       window.localStorage.setItem('productsInCart', JSON.stringify(cartItems))
+    }, [cartItems])
+
+     const updateCart = async (obj) =>{
      let duplicate =  cartItems.find(e =>  isEqual(obj, e))
       if(duplicate){
         setCartItems(cartItems.concat(obj))
       }
-     else{setCartItems(cartItems.concat(obj))}
+     else{
+       setCartItems(cartItems => [...cartItems, obj])
+      }
      console.log(cartItems)
     }
 
