@@ -17,7 +17,7 @@ const SalesItem = ({ details, history, match }) => {
   return (
     <div className="card border-0">
       {/* <ModalComponent details={details} /> */}
-      <img src={details.images[0]} alt='product' onClick={()=> viewProduct(details)}/>
+      <img className='card-img-top' src={details.images[0]} alt='product' onClick={()=> viewProduct(details)}/>
       <div className="d-flex  justify-content-between card-body p-0 mb-0">
         <div className="order-1">
           <button href="/categories" className="btn text-center text-white m-2 order-btn" >

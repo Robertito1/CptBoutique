@@ -1,0 +1,38 @@
+.sideDrawer {
+  background: rgb(250, 249, 250);
+  box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 400px;
+  z-index: 200;
+  transform: translateX(-100%);
+  transition: transform 0.4s ease-out;
+}
+
+.sideDrawer.open {
+  transform: translateX(0);
+}
+
+.sideDrawer ul {
+  list-style: none;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.sideDrawer a {
+  text-decoration: none;
+}
+
+.sideDrawer a:hover,
+.sideDrawer a:active {
+  color: rgb(235, 49, 235);
+}
+
+@media (min-width: 769px) {
+  .sideDrawer {
+    display: none;
+  }
+}

@@ -2,6 +2,10 @@ import React, {useState, useEffect} from "react";
 import { Switch, Route } from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import Header from "./components/header/Header";
+import Navbar from './components/Navbar/Navbar';
+import DrawerToggleButton from './components/SideDrawer/DrawerToggleButton';
+import SideDrawer from './components/SideDrawer/SideDrawer';
+import BackDrop from './components/BackDrop/BackDrop';
 import Bags from "./pages/bags/Bags";
 import ShoesPage from "./pages/shoes/ShoesPage";
 import WearsPage from "./pages/wears/WearsPage";
@@ -21,12 +25,15 @@ import BagsAdmin from './pages/admin/bags_admin'
 import ShoesAdmin from './pages/admin/shoes_admin'
 import WearsAdmin from './pages/admin/wears_admin'
 import "./App.css";
+import Logo from "./components/Logo/Logo";
 
 //chrisdon95.github.io/NazaKingEvents/
 
 function App() {
 
      const [cartItems, setCartItems] = useState([])
+     const [sideDrawerOpen, setSideDrawerOpen] = useState(false)
+
 
      useEffect(() => {
       const cartInStorage = window.localStorage.getItem('productsInCart')
@@ -52,14 +59,34 @@ function App() {
      console.log(cartItems)
     }
 
+    const toggleClickHandler = () =>{
+      setSideDrawerOpen( prevState => !prevState)
+    }
+  
+  
+    let backdrop
+  
+     if(sideDrawerOpen){
+       backdrop =  <BackDrop click={toggleClickHandler}/> 
+     }
+
   return (
     <div className="App">
-      <Header />
-      <div>
-        cart
-        <span className='badge badge-pill badge-secondary'>{cartItems.length}</span>
-      </div>
-      <Switch>
+      {/* <Header /> */}
+      <div className='navSegment'>
+          <Navbar />
+          </div>
+          <SideDrawer show={sideDrawerOpen} click={toggleClickHandler}/>  
+          {backdrop}
+        <div className='contentSegment'>
+          <Logo />
+            <div>
+            cart
+            <span className='badge badge-pill badge-secondary'>{cartItems.length}</span>
+          </div>
+          <DrawerToggleButton  click={toggleClickHandler}/>
+          {/* <p>Rest of the Page content</p> */}
+          <Switch>
         <Route exact path="/" render={() => <Homepage/>} />
         <Route exact path="/admin" component={() => <AdminHome />} />  
         <Route exact path="/bags" component={() => <Bags />} />
@@ -79,6 +106,7 @@ function App() {
         <Route path='/:product' component={() =><SalesProductPage updateCart={updateCart}/>} />
       </Switch>
       <Footer />
+        </div>  
     </div>
   );
 }
