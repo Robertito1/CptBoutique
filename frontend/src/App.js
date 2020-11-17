@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { Switch, Route } from "react-router-dom";
 import Homepage from "./pages/Homepage";
-import Header from "./components/header/Header";
+// import Header from "./components/header/Header";
 import Navbar from './components/Navbar/Navbar';
 import DrawerToggleButton from './components/SideDrawer/DrawerToggleButton';
 import SideDrawer from './components/SideDrawer/SideDrawer';
@@ -42,6 +42,7 @@ function App() {
         setCartItems(savedCartArray)
         console.log(cartItems)
       }
+      // eslint-disable-next-line
     }, [])
 
     useEffect(() => {
@@ -79,11 +80,7 @@ function App() {
           <SideDrawer show={sideDrawerOpen} click={toggleClickHandler}/>  
           {backdrop}
         <div className='contentSegment'>
-          <Logo />
-            <div>
-            cart
-            <span className='badge badge-pill badge-secondary'>{cartItems.length}</span>
-          </div>
+          <Logo cartItems={cartItems}/>
           <DrawerToggleButton  click={toggleClickHandler}/>
           {/* <p>Rest of the Page content</p> */}
           <Switch>

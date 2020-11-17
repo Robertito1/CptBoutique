@@ -17,7 +17,7 @@ const wearSchema = new mongoose.Schema({
   colors:[String],
   sizes:[String],
   images: [String],
-  description: String
+  description: [String]
 });
 
 wearSchema.set("toJSON", {

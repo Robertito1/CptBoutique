@@ -17,7 +17,7 @@ const bagSchema = new mongoose.Schema({
   colors:[String],
   sizes:[String],
   images: [String],
-  description: String
+  description: [String]
 });
 
 bagSchema.set("toJSON", {

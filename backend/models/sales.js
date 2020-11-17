@@ -17,7 +17,7 @@ const salesSchema = new mongoose.Schema({
   colors:[String],
   sizes:[String],
   images: [String],
-  description: String
+  description: [String]
 });
 
 salesSchema.set("toJSON", {

@@ -17,7 +17,7 @@ const shoeSchema = new mongoose.Schema({
   colors:[String],
   sizes:[String],
   images: [String],
-  description: String
+  description: [String]
 });
 
 shoeSchema.set("toJSON", {
