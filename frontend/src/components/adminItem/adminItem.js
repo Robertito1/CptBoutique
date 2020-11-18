@@ -1,14 +1,14 @@
 import React from "react";
 // import ModalComponent from "../modalNew/modalNew"
 import "../SalesItem/salesitem.css";
+// import UpdateProductForm from '../../components/productFormAdmin/UpdateProductForm'
 
-const AdminItem = ({ details, handleDelete}) => {
+const AdminItem = ({ details, handleDelete ,updateProduct}) => {
 
   const raiseDelete =(id) =>{
     handleDelete(id)
   }
 
-  // const raiseUpdate = ()
 
   return (
     <div className="card border-0">
@@ -31,6 +31,7 @@ const AdminItem = ({ details, handleDelete}) => {
           </div>
         </div>
       </div>
+      {/* <UpdateProductForm details={details} updateProduct={updateProduct}/> */}
     </div>
   );
 };

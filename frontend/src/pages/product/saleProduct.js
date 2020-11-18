@@ -8,11 +8,12 @@ const SalesProductPage = ({match, updateCart}) => {
    
      const [product, setProduct] = useState(null)
      const [quantity, setQuantity] = useState(1)
-     const [color, setColor] = useState(0)
-     const [size, setSize] = useState(0)
+     const [color, setColor] = useState('')
+     const [size, setSize] = useState('')
 
+     const id = match.params.product
      useEffect(()=>{
-       salesService.getSingleSales(match.params.product)
+       salesService.getSingleSales(id)
               .then(res =>{
                   setProduct(res.data)
                   console.log(product)
@@ -28,9 +29,9 @@ const SalesProductPage = ({match, updateCart}) => {
                 name: product.title,
                 price: product.price,
                 preview:product.images[0],
-                color,
-                size,
-                quantity
+                color: color,
+                size: size,
+                quantity: quantity
             }
             updateCart(item)
             // setColor('')  
@@ -47,13 +48,12 @@ const SalesProductPage = ({match, updateCart}) => {
        if(product === null){
            return <div>loading</div>
        }else{
-           console.log(product)
              return <div>
              <div className='row productInfoContainer'>
-                   <div className='col'>
+                   <div className='col-sm-12 col-md-6'>
                      <ModalComponent details={product}/>
                    </div>
-                   <div className='col'>
+                   <div className='col-sm-12 col-md-6 d-flex align-self-center flex-column'>
                    <h5>{product.title}</h5>
                    <h3>{product.price}</h3>
                    <h5 className='text-center selectPrefrenceHeader'>Choose Color and Size</h5>
@@ -61,13 +61,13 @@ const SalesProductPage = ({match, updateCart}) => {
                    <div className='col'>
                     <p className='char'>Color:</p>  
                     <select className='selectPrefrence' value={color} onChange={(e)=>setColor(e.target.value)}>
-                        {product.colors.map(e => <option value={e} className='char'>{e}</option>)}
+                        {product.colors[0].split(',').map(e => <option key={e} value={e} className='char'>{e}</option>)}
                     </select>  
                   </div>
                   <div className='col'>
                     <p className='char'>Size:</p>  
                     <select className='selectPrefrence' value={size} onChange={(e)=>setSize(e.target.value)}>
-                        {product.sizes.map(e => <option value={e} className='char'>{e}</option>)}
+                        {product.sizes[0].split(',').map(e => <option key={e} value={e} className='char'>{e}</option>)}
                     </select>
                     </div>
                    </div>
@@ -84,12 +84,12 @@ const SalesProductPage = ({match, updateCart}) => {
                    </div>
                 </div>
                 <div className='d-flex descriptionContainer'>
-                        <div className='descriptionHeader d-flex justify-content-center'>
-                            <h3>Description</h3>
-                        </div>
-                        <div>
-                            {product.description}
-                        </div>
+                        <div className='description'>
+                            <h3 className='text-center descriptionHeader'>Description</h3>               
+                            <ul className='descriptionList'>
+                                {product.description[0].split(',').map(e => <li key={e}>{e}</li>)}
+                            </ul>
+                        </div>        
                 </div> 
                 </div>     
        }
