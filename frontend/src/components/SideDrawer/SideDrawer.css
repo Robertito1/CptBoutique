@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap");
+
 .sideDrawer {
   background: rgb(250, 249, 250);
   box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.5);
@@ -23,8 +25,15 @@
   flex-direction: column;
 }
 
+.sideDrawer li {
+  height: 60px;
+  border-top: 1px solid rgba(236, 29, 81, 0.3);
+}
+
 .sideDrawer a {
   text-decoration: none;
+  font-family: "Noto Sans JP", sans-serif;
+  margin-top: 100px;
 }
 
 .sideDrawer a:hover,

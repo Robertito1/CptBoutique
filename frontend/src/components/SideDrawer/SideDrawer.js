@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import './SideDrawer.css'
 
 const SideDrawer = ({show, click}) => {
@@ -13,12 +14,38 @@ const SideDrawer = ({show, click}) => {
         <button onClick={()=>click()}>
             close
         </button>
-            <ul>
-                <li><a href='/'>Wears</a></li>
-                <li><a href='/'>Bags</a></li>
-                <li><a href='/'>Fouul</a></li>
-                <li><a href='/'>Treas</a></li>
-            </ul>
+        <ul className='linksList'>
+                        <li>
+                          <Link className="toHome" to="/">
+                            Home
+                          </Link>
+                        </li>
+                        <li>
+                          <Link className="toAccessories" to="/accessories">
+                            Accessories
+                          </Link>
+                        </li>
+                        <li>
+                          <Link className="toBags" to="/bags">
+                            Bags
+                          </Link>
+                        </li>
+                        <li>
+                          <Link className="toShoes" to="/shoes">
+                            Shoes
+                          </Link>
+                        </li>
+                        <li>
+                          <Link className="toWears" to="/wears">
+                            Wears
+                          </Link>
+                        </li>
+                        <li>
+                          <Link className="toCart" to="/cart">
+                            Cart
+                          </Link>
+                        </li>
+                    </ul>
     </nav>
      );
 }

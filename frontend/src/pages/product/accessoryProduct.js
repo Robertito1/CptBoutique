@@ -3,6 +3,8 @@ import {withRouter} from 'react-router-dom'
 import accessoriesService from '../../services/accessories'
 import ModalComponent from '../../components/modalNew/modalNew'
 import Notification from '../../components/notification/Notification'
+import {FormattedNumber} from 'react-intl'
+import getSymbolFromCurrency from 'currency-symbol-map'
 import './product.css'
 
 
@@ -14,6 +16,7 @@ const AccessoryProductPage = ({match,updateCart}) => {
     const [size, setSize] = useState('')
     const [message, setMessage] = useState('')
 
+    const nga = getSymbolFromCurrency('NGN')
 
      useEffect(()=>{
        accessoriesService.getSingleAccessory(match.params.product)
@@ -67,7 +70,7 @@ const AccessoryProductPage = ({match,updateCart}) => {
                    </div>
                    <div className='col-sm-12 col-lg-6 -flex align-self-center flex-column'>
                    <h5>{product.title}</h5>
-                   <h3>{product.price}</h3>
+                   <h3>{nga}<FormattedNumber value={product.price}/></h3>
                    <Notification message={message}/>
                    <h5 className='text-center selectPrefrenceHeader'>Choose Color and Size</h5>
                    <div className='row'>
