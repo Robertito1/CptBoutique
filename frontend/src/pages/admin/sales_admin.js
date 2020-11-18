@@ -10,6 +10,9 @@ const SalesAdmin = ({history}) => {
     const [images, setImages] = useState([])
     const [title, setTitle] = useState('')
     const [price, setPrice] = useState('') 
+    const [description, setDescription] = useState('')
+    const [colors , setColors] = useState('')
+    const [sizes, setSizes] = useState('')
     const [salesArray, setSalesArray] = useState([])
 
     const form = useRef(null)
@@ -35,19 +38,23 @@ const SalesAdmin = ({history}) => {
     const uploadForm = (e) => {
         e.preventDefault()
         const formData = new FormData(form.current)
-
-        console.log(formData.getAll('images'))
-
+        // const descriptionString = formData.getAll('description')
+        // const colorString = formData.getAll('colors')
+        // const sizeString = formData.getAll('sizes')
+        // formData.set('description' , 'descriptionString[0].split(',')')
+        // formData.set('colors' , colorString[0].split(','))
+        // formData.set('sizes' , sizeString[0].split(','))
+  
             const config = {
          headers: { Authorization: `bearer ${user.token}` },
-   }
+                 }
         
      salesServices
      .createSales(formData , config)
         .then( response => {
            console.log(response)
            console.log(formData)
-          //  setSalesArray(salesArray.concat(formData))
+          setSalesArray(salesArray => [...salesArray,response])
            setImages([])
            setTitle('')
            setPrice('')
@@ -74,6 +81,7 @@ const SalesAdmin = ({history}) => {
        
       console.log(id)
     }
+    
 
     return ( <div>
     <button onClick={()=> history.push('/admin')}>back</button>
@@ -84,9 +92,36 @@ const SalesAdmin = ({history}) => {
       
         
         <form onSubmit={uploadForm} ref={form}>
-            <input type='text' value={title} name='title' onChange={(e) => setTitle(e.target.value)} />
-            <input type='text' value={price} name='price' onChange={(e) => setPrice(e.target.value)} />
-            <input type='file' name="images" multiple onChange={(e) => setSelectedImages(e.target.files)} />
+        <div>
+          <p>Name: <span>
+             <input type='text' value={title} name='title' onChange={(e) => setTitle(e.target.value)} />
+           </span></p>
+        </div>
+        <div>
+          <p>Price: <span>
+                  <input type='text' value={price} name='price' onChange={(e) => setPrice(e.target.value)} />
+          </span></p>
+        </div>
+        <div>
+          <p>Colors: <span>
+                <input type='text' value={colors} name='colors' onChange={(e) => setColors(e.target.value)} />
+          </span></p>
+        </div>
+        <div>
+          <p>Sizes: <span>
+               <input type='text' value={sizes} name='sizes' onChange={(e) => setSizes(e.target.value)} />
+           </span></p>
+        </div>
+        <div>
+          <p>Description: <span>
+          <input type='text' value={description} name='description' onChange={(e)=>setDescription(e.target.value)} />
+          </span></p>
+        </div>
+        <div>
+          <p>Images: <span>
+          <input type='file' name="images" multiple onChange={(e) => setSelectedImages(e.target.files)} />
+          </span></p>
+        </div>   
             <input type='submit' name='submit' />
         </form>
     </div> );
