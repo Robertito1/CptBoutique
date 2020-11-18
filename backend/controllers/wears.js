@@ -53,7 +53,7 @@ wearsRouter.delete("/:id", async (request, response, next) => {
     const decodedToken = jwt.verify(request.token, process.env.SECRET);
     const wear = await Wear.findById(request.params.id);
     if (decodedToken.id) {
-      const deletedWear = await Wear.deleteOne(wear);
+      const deletedWear = await Wear.deleteOne({_id:wear._id});
       console.log(deletedWear);
       response.status(204).end();
     } else {

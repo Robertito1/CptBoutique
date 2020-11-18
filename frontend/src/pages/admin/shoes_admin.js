@@ -1,18 +1,15 @@
-import React, { useState, useEffect , useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 import AdminItem from '../../components/adminItem/adminItem'
+import ProductForm from '../../components/productFormAdmin/ProductForm'
 import shoesServices from '../../services/shoes'
 
 
 const ShoesAdmin = ({history}) => {
 
     const [user, setUser] = useState(null)
-    const [images, setImages] = useState([])
-    const [title, setTitle] = useState('')
-    const [price, setPrice] = useState('') 
     const [shoesArray, setShoesArray] = useState([])
 
-    const form = useRef(null)
 
     useEffect(() => {
         shoesServices
@@ -32,31 +29,19 @@ const ShoesAdmin = ({history}) => {
         }
       }, [])
 
-    const uploadForm = (e) => {
-        e.preventDefault()
-        const formData = new FormData(form.current)
-
-        console.log(formData.getAll('images'))
-
-            const config = {
-         headers: { Authorization: `bearer ${user.token}` },
-   }
-        
-     shoesServices
-     .createShoes(formData , config)
-        .then( response => {
-           console.log(response)
-           console.log(formData)
-           setPrice('')
-           setTitle('')
-          }).catch(error => {
-            console.log('fail', error)
-          })
-    }
-
-    const setSelectedImages = (object) => {
-           setImages(images.concat(object))
-    }
+      const uploadProduct = (data) => { 
+              const config = {
+           headers: { Authorization: `bearer ${user.token}` },
+                   }      
+       shoesServices
+       .createShoes(data , config)
+          .then( response => {
+             console.log(response)
+            setShoesArray(shoesArray => [response,...shoesArray])
+            }).catch(error => {
+              console.log('fail', error)
+            })
+      }
 
     const handleDelete = (id) =>{
       const config = {
@@ -68,9 +53,7 @@ const ShoesAdmin = ({history}) => {
       .then(res => { 
 
         setShoesArray(shoesArray.filter(item => item.id !== id ? item : null))
-         console.log(res)})
-       
-      console.log(id)
+        })
     }
 
     return ( <div>
@@ -79,14 +62,7 @@ const ShoesAdmin = ({history}) => {
         <h1>Shoes</h1>
          {shoesArray.map(item => <AdminItem details={item} key={item.id} handleDelete={handleDelete} />)} 
         </div>
-      
-        
-        <form onSubmit={uploadForm} ref={form}>
-            <input type='text' value={title} name='title' onChange={(e) => setTitle(e.target.value)} />
-            <input type='text' value={price} name='price' onChange={(e) => setPrice(e.target.value)} />
-            <input type='file' name="images" multiple onChange={(e) => setSelectedImages(e.target.files)} />
-            <input type='submit' name='submit' />
-        </form>
+        <ProductForm uploadProduct={uploadProduct}/>
     </div> );
 }
  

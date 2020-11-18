@@ -61,7 +61,7 @@
   width: 100%;
   border-top: 1px solid rgb(236, 29, 81);
   border-bottom: 1px solid rgb(236, 29, 81);
-  margin: 0 auto;
+  margin: 20px auto;
 }
 .descriptionContainer {
   margin-top: 50px;
@@ -69,7 +69,9 @@
 
 .descriptionList {
   font-size: 2rem;
+  margin-bottom: 40px;
 }
 .descriptionHeader {
   font-weight: bold;
+  margin-top: 40px;
 }

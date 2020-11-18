@@ -30,11 +30,9 @@ const SalesAdmin = ({history}) => {
       }, [])
 
     const uploadProduct = (data) => { 
-      console.log(data)
             const config = {
          headers: { Authorization: `bearer ${user.token}` },
-                 }
-        
+                 }   
      salesServices
      .createSales(data , config)
         .then( response => {
@@ -74,9 +72,8 @@ const SalesAdmin = ({history}) => {
       .then(res => { 
 
         setSalesArray(salesArray.filter(item => item.id !== id ? item : null))
-         console.log(res)})
+         })
        
-      console.log(id)
     }
     
 

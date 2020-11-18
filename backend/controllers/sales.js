@@ -53,7 +53,7 @@ salesRouter.delete("/:id", async (request, response, next) => {
     const decodedToken = jwt.verify(request.token, process.env.SECRET);
     const sale = await Sale.findById(request.params.id);
     if (decodedToken.id) {
-      const deletedSale = await Sale.deleteOne(sale);
+      const deletedSale = await Sale.deleteOne({_id:sale._id});
       console.log(deletedSale);
       response.status(204).end();
     } else {

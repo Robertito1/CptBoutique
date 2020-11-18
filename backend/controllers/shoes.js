@@ -53,7 +53,7 @@ shoesRouter.delete("/:id", async (request, response, next) => {
     const decodedToken = jwt.verify(request.token, process.env.SECRET);
     const shoe = await Shoe.findById(request.params.id);
     if (decodedToken.id) {
-      const deletedShoe = await Shoe.deleteOne(shoe);
+      const deletedShoe = await Shoe.deleteOne({_id:shoe._id});
       console.log(deletedShoe);
       response.status(204).end();
     } else {

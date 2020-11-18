@@ -1,18 +1,15 @@
-import React, { useState, useEffect , useRef } from 'react'
+import React, { useState, useEffect  } from 'react'
 import { withRouter } from 'react-router-dom'
 import AdminItem from '../../components/adminItem/adminItem'
+import ProductForm from '../../components/productFormAdmin/ProductForm'
 import accessoriesServices from '../../services/accessories'
 
 
 const AccessoriesAdmin = ({history}) => {
 
-    const [user, setUser] = useState(null)
-    const [images, setImages] = useState([])
-    const [title, setTitle] = useState('')
-    const [price, setPrice] = useState('') 
+    const [user, setUser] = useState(null)   
     const [accessoriesArray, setAccessoriesArray] = useState([])
 
-    const form = useRef(null)
 
     useEffect(() => {
      accessoriesServices
@@ -32,31 +29,23 @@ const AccessoriesAdmin = ({history}) => {
         }
       }, [])
 
-    const uploadForm = (e) => {
-        e.preventDefault()
-        const formData = new FormData(form.current)
+      const uploadProduct = (data) => { 
+        console.log(data)
+              const config = {
+           headers: { Authorization: `bearer ${user.token}` },
+                   }
+          
+       accessoriesServices
+       .createAccessories(data , config)
+          .then( response => {
+             console.log(response)
+            setAccessoriesArray(accessoriesArray => [response,...accessoriesArray])
+            }).catch(error => {
+              console.log('fail', error)
+            })
+      }
 
-        console.log(formData.getAll('images'))
 
-            const config = {
-         headers: { Authorization: `bearer ${user.token}` },
-   }
-        
-     accessoriesServices
-     .createAccessories(formData , config)
-        .then( response => {
-           console.log(response)
-           setPrice('')
-           setTitle('')
-          //  setImages(images.map(e => e? null: null))
-          }).catch(error => {
-            console.log('fail', error)
-          })
-    }
-
-    const setSelectedImages = (object) => {
-           setImages(images.concat(object))
-    }
 
     const handleDelete = (id) =>{
       const config = {
@@ -79,12 +68,7 @@ const AccessoriesAdmin = ({history}) => {
         <h1>Accessories</h1>
          {accessoriesArray.map(item => <AdminItem details={item} key={item.id} handleDelete={handleDelete} />)} 
         </div>
-        <form onSubmit={uploadForm} ref={form}>
-            <input type='text' value={title} name='title'  onChange={(e) => setTitle(e.target.value)} />
-            <input type='text' value={price} name='price'  onChange={(e) => setPrice(e.target.value)} />
-            <input type='file' name="images" multiple onChange={(e) => setSelectedImages(e.target.files)} />
-            <input type='submit' name='submit' />
-        </form>
+        <ProductForm uploadProduct={uploadProduct}/>
     </div> );
 }
  

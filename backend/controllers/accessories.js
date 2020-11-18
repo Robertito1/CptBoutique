@@ -53,7 +53,7 @@ accessoriesRouter.delete("/:id", async (request, response, next) => {
     const decodedToken = jwt.verify(request.token, process.env.SECRET);
     const accessory = await Accessory.findById(request.params.id);
     if (decodedToken.id) {
-      const deletedAccessory = await Accessory.deleteOne(accessory);
+      const deletedAccessory = await Accessory.deleteOne({_id:accessory._id});
       console.log(deletedAccessory);
       response.status(204).end();
     } else {

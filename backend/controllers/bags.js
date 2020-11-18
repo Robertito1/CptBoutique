@@ -53,7 +53,7 @@ bagsRouter.delete("/:id", async (request, response, next) => {
     const decodedToken = jwt.verify(request.token, process.env.SECRET);
     const bag = await Bag.findById(request.params.id);
     if (decodedToken.id) {
-      const deletedbag = await Bag.deleteOne(bag);
+      const deletedbag = await Bag.deleteOne({_id:bag._id});
       console.log(deletedbag);
       response.status(204).end();
     } else {
