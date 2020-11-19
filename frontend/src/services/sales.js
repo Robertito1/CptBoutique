@@ -1,5 +1,5 @@
 import axios from 'axios'
-const baseUrl = 'http://localhost:3001/api/sales'
+const baseUrl = '/api/sales'
 
 
 const getSales = () => {
