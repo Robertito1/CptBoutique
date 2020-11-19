@@ -18,6 +18,7 @@ function ModalComponent({details}) {
         onHide={() => setShow(false)}
         dialogClassName="modal-90w"
         aria-labelledby={details.id}
+        className='modal'
       >
         <Modal.Header closeButton>
           <Modal.Title id={details.id}>

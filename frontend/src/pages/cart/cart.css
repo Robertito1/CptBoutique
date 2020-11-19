@@ -39,6 +39,9 @@ td {
   text-decoration: none;
 }
 
+.emptyCartMessage {
+  margin-bottom: 30vh;
+}
 @media only screen and (max-width: 460px) {
   .previewImg {
     width: 40px;

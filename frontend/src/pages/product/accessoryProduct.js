@@ -61,7 +61,7 @@ const AccessoryProductPage = ({match,updateCart}) => {
 
    const renderProduct = () =>{
        if(product === null){
-           return <div>loading</div>
+           return <div className='text-center loading'>loading</div>
        }else{
            return <div>
                <div className='row productInfoContainer'>

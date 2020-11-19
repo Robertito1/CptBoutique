@@ -13,14 +13,22 @@ const ShoesPage = () => {
     });
  // eslint-disable-next-line
   }, []);
+
+  const renderShoes = () =>{
+    if(shoesArray.length === 0){
+      return <h3 style={{marginTop: '50px', marginBottom: '100vh'}}>loading</h3>
+    }else{
+     return shoesArray.map((sales) => (
+        <SalesItem key={sales.id} details={sales} />
+      ))
+    }
+  }
   return (
     <div>
       <div className="container-fluid">
         <h1 className="mt-5 title">Shoes</h1>
         <div className="row d-flex  justify-content-center">
-          {shoesArray.map((sales) => (
-            <SalesItem key={sales.id} details={sales} />
-          ))}
+          {renderShoes()}
         </div>
       </div>
     </div>

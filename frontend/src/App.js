@@ -74,21 +74,21 @@ function App() {
     }
   
   
-    let backdrop
+    // let backdrop
   
-     if(sideDrawerOpen){
-       backdrop =  <BackDrop click={toggleClickHandler}/> 
-     }
+    //  if(sideDrawerOpen){
+    //    backdrop =  <BackDrop click={toggleClickHandler}/> 
+    //  }
 
   return (
     <div className="App">
-      <div className='navSegment'>
+       <div className='navSegment'>
           <Navbar />
           </div>
           <SideDrawer show={sideDrawerOpen} click={toggleClickHandler}/>  
-          {backdrop}
+          {sideDrawerOpen? <BackDrop click={toggleClickHandler}/>: null}
         <div className='contentSegment'>
-          <Logo cartSize={cartSize} toggleClickHandler={toggleClickHandler}/>
+          <Logo cartSize={cartSize} toggleClickHandler={toggleClickHandler}/>   
           <Switch>
         <Route exact path="/" render={() => <Homepage/>} />
         <Route exact path="/admin" component={() => <AdminHome />} />  

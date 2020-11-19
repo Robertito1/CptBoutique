@@ -8,9 +8,26 @@ const Cart = ({cartItems}) => {
   const nga = getSymbolFromCurrency('NGN') 
 
    const order = `${cartItems.map(e => ' '+ e.name + ' '+ e.quantity + ' selling for ₦'+e.price + ' each')}`
-   const total = cartItems.reduce((a, c)=> {
-    return  (c.price * c.quantity) + a
-  }, 0)
+   const total = cartItems.reduce((a, c)=> {return  (c.price * c.quantity) + a }, 0)
+
+  const renderTotal =() =>{
+     if(cartItems.length === 0){
+     return <div className='orderContainer'>
+       <h3 className='emptyCartMessage text-center'>Your cart is looking very empty, please shop more!</h3>
+     </div>
+   }else{
+   return <div className='orderContainer'>
+         <h3 className='text-center'>Place an Order</h3>
+          <h5>Subtotal: {nga}<FormattedNumber value={total}/></h5>
+          <h5>Grand Total: {nga}<FormattedNumber value={total}/></h5>
+          <a 
+          href={`https://wa.me/2348033235283?text=Hello, I would like to purchase${order}. for a total bill of ₦${total}`} 
+          type='button' className='orderButton'>
+          <i class="fab fa-whatsapp m-1"></i>
+          Order on Whatsapp</a>
+       </div>
+   }
+  }
     return (
          <div>
 <table>
@@ -24,7 +41,7 @@ const Cart = ({cartItems}) => {
   </thead>
   <tbody>
   {cartItems.map(e =>
-  <tr>
+  <tr key={e.title + e.price + e.amount}>
   <td className='d-flex align-items-center'><img src={e.preview} alt='preview' className='previewImg'/><span className='productName'>{e.name}</span></td>
     <td>{nga}<FormattedNumber value={e.price}/></td>
     <td>{e.quantity}</td>
@@ -33,16 +50,7 @@ const Cart = ({cartItems}) => {
   )}
   </tbody> 
 </table> 
-<div className='orderContainer'>
-   <h3 className='text-center'>Place an Order</h3>
-   <h5>Subtotal: {nga}<FormattedNumber value={total}/></h5>
-   <h5>Grand Total: {nga}<FormattedNumber value={total}/></h5>
-   <a 
-   href={`https://wa.me/2348033235283?text=Hello, I would like to purchase${order}. for a total bill of ₦${total}`} 
-   type='button' className='orderButton'>
-   <i class="fab fa-whatsapp m-1"></i>
-   Order on Whatsapp</a>
-</div>  
+{renderTotal()}
     </div>
           );
 }

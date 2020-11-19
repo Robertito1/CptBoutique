@@ -75,3 +75,8 @@
   font-weight: bold;
   margin-top: 40px;
 }
+
+.loading {
+  margin-top: 50px;
+  margin-bottom: 100vh;
+}
