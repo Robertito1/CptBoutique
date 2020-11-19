@@ -19,7 +19,9 @@ const ProductForm = ({uploadProduct}) => {
            setImages([])
            setTitle('')
            setPrice('')
-
+           setDescription('')
+           setColors('')
+           setSizes('')
     }
 
     const setSelectedImages = (object) => {

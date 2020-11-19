@@ -11,12 +11,12 @@ const SideDrawer = ({show, click}) => {
     }
     return ( 
         <nav className={drawerClasses}>
-        <button onClick={()=>click()}>
-            close
+        <button onClick={()=>click()} className='closeDrawerbutton'>
+        <i class="fas fa-times"></i>
         </button>
         <ul className='linksList'>
                         <li>
-                          <Link className="toHome" to="/">
+                          <Link className="toHome align-self-center" to="/">
                             Home
                           </Link>
                         </li>

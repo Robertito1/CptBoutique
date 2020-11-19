@@ -24,7 +24,7 @@ const Footer = () => {
           </div>
           <div className="col-sm-6 col-md-3 text-white social-container">
             <h5 className="mb-3">Social Media</h5>
-            <a className="footer-links" href="https://instagram.com">
+            <a className="footer-links" href="https://www.instagram.com/cpt4eva/">
               <i className="fab fa-instagram"></i> {"\u00A0"} Instagram
             </a>
             <br />

@@ -1,5 +1,18 @@
 .logoComponent {
-  display: flex;
-  justify-content: center;
   border-bottom: 1px solid red;
+  margin-top: 30px;
+}
+
+.cartIcon {
+  margin-top: 20px;
+}
+
+.cartContainer a {
+  color: rgb(32, 32, 32);
+}
+
+@media (max-width: 769px) {
+  .cartIcon {
+    margin-top: 0;
+  }
 }

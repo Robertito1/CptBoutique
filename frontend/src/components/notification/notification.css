@@ -1,0 +1,8 @@
+.notificationDiv {
+  padding: 10px 7px 0 0;
+  font-family: sans-serif;
+  color: white;
+  background-color: rgb(71, 66, 66);
+  border: 1px solid red;
+  border-radius: 10px;
+}

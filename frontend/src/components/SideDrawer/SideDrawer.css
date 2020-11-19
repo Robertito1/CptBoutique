@@ -24,16 +24,23 @@
   justify-content: center;
   flex-direction: column;
 }
+.closeDrawerbutton {
+  padding: 20px 0 0 50px;
+  background: transparent;
+  border: none;
+}
 
 .sideDrawer li {
   height: 60px;
-  border-top: 1px solid rgba(236, 29, 81, 0.3);
+  /* border-top: 1px solid rgba(236, 29, 81, 0.3); */
 }
 
 .sideDrawer a {
   text-decoration: none;
   font-family: "Noto Sans JP", sans-serif;
-  margin-top: 100px;
+  color: rgba(235, 29, 83);
+  width: 100%;
+  border-bottom: 1px solid rgba(56, 54, 55, 0.3);
 }
 
 .sideDrawer a:hover,

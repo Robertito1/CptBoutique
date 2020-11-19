@@ -12,7 +12,16 @@
   }
 }
 @media only screen and (max-width: 500px) {
+  .itemImg {
+    height: 400px;
+  }
   .itemImgCarousel {
     height: 300px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .itemImg {
+    height: 315px;
   }
 }

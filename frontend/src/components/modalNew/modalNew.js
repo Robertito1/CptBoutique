@@ -8,7 +8,7 @@ function ModalComponent({details}) {
 
   return (
     <>
-      <Button variant="primary" onClick={() => setShow(true)} className='p-0 border-0'>
+      <Button variant="primary" onClick={() => setShow(true)} className='p-0 border-0 my-4'>
       <img className="d-block w-100 itemImg" src={details.images[0]}
           alt="Third slide"/>
       </Button>

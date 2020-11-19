@@ -17,18 +17,15 @@ const SalesItem = ({ details, history, match }) => {
     console.log(history)
   }
   return (
-    <div className="card border-0">
-      <img className='card-img-top' src={details.images[0]} alt='product' onClick={()=> viewProduct(details)}/>
-      <div className="d-flex  justify-content-between card-body p-0 mb-0">
+    <div className="card salesItem border-0" onClick={()=> viewProduct(details)}>
+      <img className='card-img-top' src={details.images[0]} alt='product'/>
+      <div className="d-flex  justify-content-center card-body p-0 mb-0">
         <div className="order-1">
-          <button href="/categories" className="btn text-center text-white m-2 order-btn" >
-            order
-          </button>
         </div>
         <div className="order-2">
-          <div className="card-text mb-0 text-center text-muted m-2">
-            {details.title} <br />
-            <p className="card-title text-center text-muted">
+          <div className="card-text mb-0 text-center text-dark m-2">
+             <h5 className='text-uppercase font-weight-bold'>{details.title}</h5>
+            <p className="card-title text-center text-muted font-weight-bold">
              {nga}<FormattedNumber value={details.price}/>
             </p>
           </div>

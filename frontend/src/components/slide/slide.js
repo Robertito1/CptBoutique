@@ -4,13 +4,21 @@ import slide2 from "../../assets/hero2.png";
 import slide3 from "../../assets/hero5.png";
 import "./slide.css";
 import "react-slideshow-image/dist/styles.css";
+import AOS from 'aos'
 
 const Slides = () => {
+
+  useEffect(() => {
+    AOS.init({
+      duration : 2000
+    });
+  }, []);
   return (
     <div
       id="carouselExampleFade"
       className="carousel slide carousel-fade"
       data-ride="carousel"
+      data-aos="fade-down-left"
     >
       <div className="carousel-inner">
         <div className="carousel-item active">
