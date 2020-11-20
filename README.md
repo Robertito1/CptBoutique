@@ -8,6 +8,6 @@ The Backend is a major part of the project because the site will be controlled b
 
 MongoDb will also be used for data storage, and since lots of images will be displayed on the site, a cloud hosting service will be used to serve the images from a different server. Cloudinary is favoured.
 
-\*https://cptboutique.herokuapp.com/
+\*https://cptonlineboutique.herokuapp.com/
 
 **still under active development**
