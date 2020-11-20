@@ -35,6 +35,8 @@ const WearProductPage = ({match, updateCart}) => {
         }, 3000)
        }
 
+       const generateId = () =>
+       Number((Math.random() * 1000000).toFixed(0))
 
    const handleCartUpdate = () =>{
        if(color === '' || size === ''){
@@ -46,7 +48,8 @@ const WearProductPage = ({match, updateCart}) => {
                preview:product.images[0],
                color: color,
                size: size,
-               quantity: quantity
+               quantity: quantity,
+               id: generateId()
            }
            updateCart(item)
            // setColor('') 

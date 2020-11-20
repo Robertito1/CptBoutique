@@ -12,7 +12,7 @@ const SideDrawer = ({show, click}) => {
     return ( 
         <nav className={drawerClasses}>
         <button onClick={()=>click()} className='closeDrawerbutton'>
-        <i class="fas fa-times"></i>
+        <i className="fas fa-times"></i>
         </button>
         <ul className='linksList'>
                         <li>

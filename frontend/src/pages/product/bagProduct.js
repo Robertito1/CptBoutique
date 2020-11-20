@@ -34,17 +34,22 @@ const BagProductPage = ({match, updateCart}) => {
         }, 3000)
        }
 
+       const generateId = () =>
+       Number((Math.random() * 1000000).toFixed(0))
+
        const handleCartUpdate = () =>{
         if(color === '' || size === ''){
           showMessage('Please choose a color and a size')
         }else{
+
             const item = {
                 name: product.title,
                 price: product.price,
                 preview:product.images[0],
                 color: color,
                 size: size,
-                quantity: quantity
+                quantity: quantity,
+                id: generateId()
             }
             updateCart(item)
             // setColor('') 

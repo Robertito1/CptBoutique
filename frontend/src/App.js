@@ -73,12 +73,30 @@ function App() {
       setSideDrawerOpen( prevState => !prevState)
     }
   
+    const deleteFromCart = (id) =>{
+      let newCartItems = cartItems.filter(e => e.id !== id)
+      setCartItems(cartItems => [...newCartItems])
+      window.localStorage.setItem('productsInCart', JSON.stringify(newCartItems))
+    }
   
-    // let backdrop
-  
-    //  if(sideDrawerOpen){
-    //    backdrop =  <BackDrop click={toggleClickHandler}/> 
-    //  }
+   const increaseFromCart =(id) =>{
+     let newCartItems = cartItems.map(e => e.id !== id ? e : {...e, quantity: e.quantity + 1})
+     setCartItems(cartItems => [...newCartItems])
+     window.localStorage.setItem('productsInCart', JSON.stringify(newCartItems))
+   }
+
+   const quantityReduce =(q) =>{
+     if(q !== 1){
+       return q-1
+     }else{
+       return 1
+     }
+   }
+   const decreaseFromCart =(id) =>{
+    let newCartItems = cartItems.map(e => e.id !== id ? e : {...e, quantity: quantityReduce(e.quantity)})
+    setCartItems(cartItems => [...newCartItems])
+    window.localStorage.setItem('productsInCart', JSON.stringify(newCartItems))
+  }
 
   return (
     <div className="App">
@@ -96,13 +114,18 @@ function App() {
         <Route exact path="/shoes" component={() => <ShoesPage />} />
         <Route exact path="/wears" component={() => <WearsPage />} />
         <Route exact path="/accessories" component={() => <AccessoriesPage />} />
-        <Route path='/cart' component={() =><Cart cartItems={cartItems}/>} />
+        <Route path='/cart' component={() =><Cart 
+        cartItems={cartItems} 
+        deleteItem={deleteFromCart} 
+        decrease={decreaseFromCart}
+        increase={increaseFromCart}/>} />
+
         <Route path ="/admin/sales" component={() => <SalesAdmin />} /> 
         <Route path ="/admin/accessories" component={() => <AccessoriesAdmin />} />
         <Route path ="/admin/bags" component={() => <BagsAdmin />} />
         <Route path ="/admin/shoes" component={() => <ShoesAdmin />} />
         <Route path ="/admin/wears" component={() => <WearsAdmin />} />
-        <Route path='/bags/:product' component={() =><BagProductPage updateCart={updateCart}/>} />
+        <Route path='/bags/:product' component={() =><BagProductPage updateCart={updateCart} />} />
         <Route path='/shoes/:product' component={() =><ShoeProductPage updateCart={updateCart}/>} />
         <Route path='/wears/:product' component={() =><WearProductPage updateCart={updateCart}/>} />
         <Route path='/accessories/:product' component={() =><AccessoryProductPage updateCart={updateCart}/>} />

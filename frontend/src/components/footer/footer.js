@@ -15,7 +15,7 @@ const Footer = () => {
             </p>
             <p>
               <i className="fas fa-phone-alt"></i> {"\u00A0"}
-              Call/WhatsApp: 08033235283
+              Call/WhatsApp: 08033235183
             </p>
             <p>
               <i className="far fa-envelope email"></i> {"\u00A0"} Email:
@@ -32,7 +32,7 @@ const Footer = () => {
               <i className="fab fa-facebook"></i> {"\u00A0"} Facebook
             </a>
             <br />
-            <a className="footer-links" href="https://wa.me/+2348033235283">
+            <a className="footer-links" href="https://wa.link/equupa">
               <i className="fab fa-whatsapp"></i> {"\u00A0"}
               WhatsApp
             </a>{" "}
