@@ -11,7 +11,7 @@ const Slides = () => {
   return (
     <div
       id="carouselExampleFade"
-      className="carousel slide carousel-fade animate__animated  animate__fadeInTopRight animate__delay-2s"
+      className="carousel slide carousel-fade animate__animated  animate__fadeInTopRight animate__slow	"
       data-ride="carousel"
     >
       <div className="carousel-inner">

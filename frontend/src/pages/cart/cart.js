@@ -21,6 +21,7 @@ const Cart = ({cartItems, deleteItem, increase, decrease}) => {
           <h5>Subtotal: {nga}<FormattedNumber value={total}/></h5>
           <h5>Grand Total: {nga}<FormattedNumber value={total}/></h5>
           <a 
+          onClick={()=> window.localStorage.removeItem('productsInCart')}
           href={`https://wa.me/2348033235183?text=Hello, I would like to purchase${order}, for a total bill of ₦${total}`} 
           type='button' className='orderButton'>
           <i className="fab fa-whatsapp m-1"></i>
