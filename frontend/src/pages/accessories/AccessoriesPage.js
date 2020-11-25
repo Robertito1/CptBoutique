@@ -17,7 +17,7 @@ const AccessoriesPage = () => {
    
   const renderAccessories = () =>{
   if(accessoriesArray.length === 0){
-    return <h3 style={{marginTop: '50px', marginBottom: '100vh'}}>loading</h3>
+    return <p style={{marginTop: '50px', marginBottom: '100vh'}}></p>
   }else{
    return accessoriesArray.map((sales) => (
       <SalesItem key={sales.id} details={sales} />

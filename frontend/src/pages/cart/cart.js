@@ -47,7 +47,7 @@ const Cart = ({cartItems, deleteItem, increase, decrease}) => {
     <td>{nga}<FormattedNumber value={e.price}/></td>
     <td className='text-center'>
         <p>{e.quantity}</p>
-        <div className='d-flex justify-content-center'>
+        <div className='d-flex justify-content-around'>
         <div onClick={()=>decrease(e.id)} className='cartControl p-1 minus'><i className="fas fa-minus"></i></div>
         <div onClick={()=>increase(e.id)} className='cartControl p-1 plus'><i className="fas fa-plus"></i></div>
         </div>        

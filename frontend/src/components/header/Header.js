@@ -1,18 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logoImg from '../../assets/freeLogo.jpeg'
 import "./header.css";
 
-const Header = () => {
+const Header = ({cartSize}) => {
   return (
-    <div className="header">
+    <div className="nav-container">
       <nav
-        className="navbar navbar-expand-md navbar-light "
+        className="navbar navbar-expand-md navbar-light"
         id="navbar-section"
       >
         <Link className="toHome navbar-brand" to="/">
-          <p className="my-auto logo animate__animated animate__backInUp text-white logo">
+        <img src={logoImg} alt='logo' 
+        className="my-auto logo animate__animated animate__backInUp logo"
+        style={{height: '60px'}}
+         />
+
+          {/* <p className="my-auto logo animate__animated animate__backInUp text-dark logo">
             CPT
-          </p>
+          </p> */}
         </Link>
         <button
           className="navbar-toggler"
@@ -24,46 +30,30 @@ const Header = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarResponsive">
           <ul className="navbar-nav text-nowrap ml-auto">
-            <li className="nav-item ">
-              <Link className="toHome nav-link text-white" to="/">
-                Home
-              </Link>
-            </li>
-            <li className="nav-item dropdown">
-              <Link
-                className="nav-link dropdown-toggle text-white"
-                to="/categories"
-                id="navbarDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Categories
-              </Link>
-              <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <Link className="dropdown-item" to="/wears">
-                  Wears
-                </Link>
-                <Link className="dropdown-item" to="/shoes">
-                  Shoes
-                </Link>
-                <div className="dropdown-divider"></div>
-                <Link className="dropdown-item" to="/bags">
-                  Bags
-                </Link>
-                <Link className="dropdown-item" to="/accessories">
+            <li className="nav-item">
+               <Link className="nav-link" to="/accessories">
                   Accessories
                 </Link>
-              </div>
             </li>
-            <li className="nav-item dropdown">
-              <Link className="toContact nav-link text-white" to="/">
-                Contact
-              </Link>
+            <li className="nav-item">
+                <Link className="nav-link" to="/bags">
+                  Bags
+                </Link>
+            </li>
+            <li className="nav-item">
+               <Link className="nav-link" to="/shoes">
+                  Shoes
+                </Link>
+            </li>
+            <li className="nav-item">
+               <Link className="nav-link" to="/wears">
+                  Wears
+                </Link>
             </li>
           </ul>
         </div>
+        <Link className="nav-link" to='/cart'><i className="fas fa-shopping-cart fa-sm cartIcon"></i>
+            <span className='badge badge-pill badge-warning'>{cartSize}</span></Link>
       </nav>
     </div>
   );

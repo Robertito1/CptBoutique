@@ -9,15 +9,15 @@ import './Logo.css'
 const Logo = ({cartSize , toggleClickHandler}) => {
   
     return ( 
-        <div className='logoComponent d-flex justify-content-between'>
+        <div className='logoComponent'>
         <div className='toggler ml-4'>
           <DrawerToggleButton  click={toggleClickHandler}/>
         </div>
-        <div >
-        <Link to='/'>
-        <img src={logoImg} alt='logo' />
-        </Link>
-        </div>
+            <div >
+            <Link to='/'>
+            <img src={logoImg} alt='logo' />
+            </Link>
+            </div>
             <div className='mr-4 cartContainer'>
             <Link to='/cart'><i className="fas fa-shopping-cart fa-2x cartIcon"></i>
             <span className='badge badge-pill badge-warning'>{cartSize}</span></Link>

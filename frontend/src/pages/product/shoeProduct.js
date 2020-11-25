@@ -64,7 +64,7 @@ const reduceQuantity = () =>{
 
    const renderProduct = () =>{
        if(product === null){
-           return <div>loading</div>
+           return <div style={{marginTop: '50px', marginBottom: '100vh'}}></div>
        }else{
            return <div>
                 <div className='row productInfoContainer'>

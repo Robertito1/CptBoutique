@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from "react";
 import { Switch, Route } from "react-router-dom";
 import Homepage from "./pages/Homepage";
-// import Header from "./components/header/Header";
-import Navbar from './components/Navbar/Navbar';
-import SideDrawer from './components/SideDrawer/SideDrawer';
-import BackDrop from './components/BackDrop/BackDrop';
+import Header from "./components/header/Header";
+// import Navbar from './components/Navbar/Navbar';
+// import SideDrawer from './components/SideDrawer/SideDrawer';
+// import BackDrop from './components/BackDrop/BackDrop';
 import Bags from "./pages/bags/Bags";
 import ShoesPage from "./pages/shoes/ShoesPage";
 import WearsPage from "./pages/wears/WearsPage";
@@ -24,7 +24,7 @@ import BagsAdmin from './pages/admin/bags_admin'
 import ShoesAdmin from './pages/admin/shoes_admin'
 import WearsAdmin from './pages/admin/wears_admin'
 import "./App.css";
-import Logo from "./components/Logo/Logo";
+// import Logo from "./components/Logo/Logo";
 
 //chrisdon95.github.io/NazaKingEvents/
 
@@ -32,7 +32,7 @@ function App() {
 
      const [cartItems, setCartItems] = useState([])
      const [cartSize, setCartSize] = useState(0)
-     const [sideDrawerOpen, setSideDrawerOpen] = useState(false)
+    //  const [sideDrawerOpen, setSideDrawerOpen] = useState(false)
 
 
      useEffect(() => {
@@ -69,9 +69,9 @@ function App() {
       }
     }
 
-    const toggleClickHandler = () =>{
-      setSideDrawerOpen( prevState => !prevState)
-    }
+    // const toggleClickHandler = () =>{
+    //   setSideDrawerOpen( prevState => !prevState)
+    // }
   
     const deleteFromCart = (id) =>{
       let newCartItems = cartItems.filter(e => e.id !== id)
@@ -100,13 +100,14 @@ function App() {
 
   return (
     <div className="App">
-       <div className='navSegment'>
+       {/* <div className='navSegment'>
           <Navbar />
-          </div>
-          <SideDrawer show={sideDrawerOpen} click={toggleClickHandler}/>  
-          {sideDrawerOpen? <BackDrop click={toggleClickHandler}/>: null}
-        <div className='contentSegment'>
-          <Logo cartSize={cartSize} toggleClickHandler={toggleClickHandler}/>   
+          </div> */}
+          {/* <SideDrawer show={sideDrawerOpen} click={toggleClickHandler}/>  
+          {sideDrawerOpen? <BackDrop click={toggleClickHandler}/>: null} */}
+        <div>
+          {/* <Logo cartSize={cartSize} toggleClickHandler={toggleClickHandler}/>    */}
+          <Header cartSize={cartSize} />
           <Switch>
         <Route exact path="/" render={() => <Homepage/>} />
         <Route exact path="/admin" component={() => <AdminHome />} />  
